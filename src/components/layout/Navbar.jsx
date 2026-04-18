@@ -1,0 +1,130 @@
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { MenuIcon, CloseIcon, PhoneIcon } from "../icons/Icons";
+import Button from "../ui/Button";
+import logo from "../../assets/logo.png";
+
+const links = [
+  { label: "About", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Conditions", href: "/#conditions" },
+  { label: "Testimonials", href: "/#testimonials" },
+  { label: "Contact", href: "/#contact" },
+];
+
+const PHONE_HREF = "tel:+917738556911";
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      // Restore original overflow
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  return (
+    <>
+      <motion.nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "bg-cloud/90 backdrop-blur-xl shadow-sm"
+            : "bg-transparent"
+        }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-20">
+          <div className="flex items-center justify-between h-20 md:h-24">
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-2 group">
+              <img
+                src={logo}
+                alt="Adapt Physiotherapy"
+                className="h-10 md:h-12 w-auto"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+              />
+            </Link>
+
+            {/* Desktop Links */}
+            <div className="hidden lg:flex items-center gap-10">
+              {links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm tracking-wide text-slate hover:text-charcoal transition-colors duration-300"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+
+            {/* Mobile: Call Icon + Toggle */}
+            <div className="flex items-center gap-1 lg:hidden">
+              <button
+                className="text-charcoal p-2 cursor-pointer"
+                onClick={() => setMobileOpen(!mobileOpen)}
+                aria-label="Toggle menu"
+              >
+                {mobileOpen ? <CloseIcon /> : <MenuIcon />}
+              </button>
+            </div>
+          </div>
+        </div>
+      </motion.nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            className="fixed inset-0 z-40 bg-cloud flex flex-col items-center justify-center gap-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {links.map((link, i) => (
+              <motion.a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="text-h3 text-charcoal"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              >
+                {link.label}
+              </motion.a>
+            ))}
+            <motion.div
+              className="flex flex-col gap-4 pt-8 border-t border-charcoal/10 w-full px-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.4 }}
+            >
+              <Button href="#contact" onClick={() => setMobileOpen(false)}>
+                Book Consultation
+              </Button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
