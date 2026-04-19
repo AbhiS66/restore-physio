@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import ConversionHooks from "./components/ui/ConversionHooks";
+import ScrollToTop from "./components/utils/ScrollToTop";
 import HomePage from "./pages/HomePage";
 import LocationPage from "./pages/LocationPage";
 import TreatmentPage from "./pages/TreatmentPage";
@@ -9,6 +10,7 @@ import TreatmentPage from "./pages/TreatmentPage";
 export default function App() {
   return (
     <div className="grain overflow-x-hidden">
+      <ScrollToTop />
       <Navbar />
       <main className="overflow-x-hidden">
         <Routes>

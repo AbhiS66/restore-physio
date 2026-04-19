@@ -41,6 +41,27 @@ function ServiceCard({ service, index }) {
 }
 
 export default function Services() {
+  // Safety check to ensure services data is loaded
+  if (!services || services.length === 0) {
+    return (
+      <SectionWrapper id="services" bg="bg-cloud">
+        <div className="mb-16 md:mb-20 max-w-2xl">
+          <SectionLabel>What We Offer</SectionLabel>
+          <h2 className="text-h1 text-charcoal mb-6">
+            Specialised care for every stage of your recovery
+          </h2>
+          <p className="text-body text-slate">
+            From acute injury management to long-term wellness, our services are
+            designed to restore function, relieve pain, and empower movement.
+          </p>
+        </div>
+        <div className="text-center text-slate">
+          <p>Services loading...</p>
+        </div>
+      </SectionWrapper>
+    );
+  }
+
   return (
     <SectionWrapper id="services" bg="bg-cloud">
       <div className="mb-16 md:mb-20 max-w-2xl">
@@ -56,7 +77,12 @@ export default function Services() {
         </RevealOnScroll>
       </div>
 
-      <RevealOnScroll stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <RevealOnScroll
+        stagger
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        delay={0.1}
+        threshold={0.2}
+      >
         {services.map((service, i) => (
           <ServiceCard key={service.id} service={service} index={i} />
         ))}

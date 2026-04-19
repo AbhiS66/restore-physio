@@ -37,8 +37,11 @@ export default function ConversionHooks() {
         transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}
       >
         <div className="mx-auto max-w-7xl flex items-center gap-3">
+          {/* Mobile: Call directly (this bar is already mobile-only with md:hidden) */}
           <a
-            href="#contact"
+            href="tel:+917738556911"
+            target="_blank"
+            rel="noreferrer"
             className="w-full inline-flex items-center justify-center rounded-full bg-primary-deep text-snow px-4 py-3 text-sm font-medium"
           >
             Book Appointment

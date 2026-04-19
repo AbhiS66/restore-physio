@@ -11,13 +11,28 @@ export default function CTASection() {
             Your healing journey starts with a single step
           </h2>
           <p className="text-body text-snow/80 max-w-lg mx-auto mb-12">
-            Book your initial consultation today. Let&apos;s build a recovery plan
+            Book your initial consultation today. Let's build a recovery plan
             as unique as you are.
           </p>
-          <Button href="#contact" variant="light" size="lg">
-            Book Your Consultation
-            <ArrowRight />
-          </Button>
+          {/* Desktop: Scroll to contact */}
+          <div className="hidden md:block">
+            <Button href="#contact" variant="light" size="lg">
+              Book Your Consultation
+              <ArrowRight />
+            </Button>
+          </div>
+          {/* Mobile: Call directly */}
+          <div className="md:hidden">
+            <a
+              href="tel:+917738556911"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide transition-all duration-400 cursor-pointer bg-sand text-charcoal hover:bg-cloud px-10 py-4 text-base"
+            >
+              Book Your Consultation
+              <ArrowRight />
+            </a>
+          </div>
         </RevealOnScroll>
       </div>
     </section>

@@ -1,5 +1,10 @@
 import { useRef } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import Button from "../ui/Button";
 import { ArrowRight } from "../icons/Icons";
 
@@ -13,29 +18,53 @@ function AnimatedBackground({ reduceMotion }) {
       {/* Floating organic shapes — slow, calming motion */}
       <motion.div
         className="absolute -top-1/4 -right-1/4 w-[60vw] h-[60vw] rounded-full bg-primary/[0.06] blur-3xl"
-        animate={reduceMotion ? { opacity: 0.8 } : {
-          x: [0, 30, -20, 0],
-          y: [0, -40, 20, 0],
-          scale: [1, 1.1, 0.95, 1],
-        }}
-        transition={reduceMotion ? { duration: 0.2 } : { duration: 20, repeat: Infinity, ease: "linear" }}
+        animate={
+          reduceMotion
+            ? { opacity: 0.8 }
+            : {
+                x: [0, 30, -20, 0],
+                y: [0, -40, 20, 0],
+                scale: [1, 1.1, 0.95, 1],
+              }
+        }
+        transition={
+          reduceMotion
+            ? { duration: 0.2 }
+            : { duration: 20, repeat: Infinity, ease: "linear" }
+        }
       />
       <motion.div
         className="absolute -bottom-1/3 -left-1/4 w-[50vw] h-[50vw] rounded-full bg-sand/[0.04] blur-3xl"
-        animate={reduceMotion ? { opacity: 0.75 } : {
-          x: [0, -20, 30, 0],
-          y: [0, 30, -20, 0],
-          scale: [1, 0.95, 1.1, 1],
-        }}
-        transition={reduceMotion ? { duration: 0.2 } : { duration: 25, repeat: Infinity, ease: "linear" }}
+        animate={
+          reduceMotion
+            ? { opacity: 0.75 }
+            : {
+                x: [0, -20, 30, 0],
+                y: [0, 30, -20, 0],
+                scale: [1, 0.95, 1.1, 1],
+              }
+        }
+        transition={
+          reduceMotion
+            ? { duration: 0.2 }
+            : { duration: 25, repeat: Infinity, ease: "linear" }
+        }
       />
       <motion.div
         className="absolute top-1/3 left-1/3 w-[30vw] h-[30vw] rounded-full bg-primary/[0.04] blur-3xl"
-        animate={reduceMotion ? { opacity: 0.7 } : {
-          x: [0, 40, -10, 0],
-          y: [0, -20, 40, 0],
-        }}
-        transition={reduceMotion ? { duration: 0.2 } : { duration: 18, repeat: Infinity, ease: "linear" }}
+        animate={
+          reduceMotion
+            ? { opacity: 0.7 }
+            : {
+                x: [0, 40, -10, 0],
+                y: [0, -20, 40, 0],
+              }
+        }
+        transition={
+          reduceMotion
+            ? { duration: 0.2 }
+            : { duration: 18, repeat: Infinity, ease: "linear" }
+        }
       />
     </div>
   );
@@ -142,10 +171,23 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Button href="#contact" size="lg">
-              Book Consultation
-              <ArrowRight />
-            </Button>
+            {/* Desktop: Scroll to contact */}
+
+            {/* Desktop */}
+            <div className="hidden md:contents">
+              <Button href="#contact" size="lg">
+                Book Consultation
+                <ArrowRight />
+              </Button>
+            </div>
+
+            {/* Mobile */}
+            <div className="contents md:hidden">
+              <Button href="tel:+917738556911" size="lg">
+                Book Consultation
+                <ArrowRight />
+              </Button>
+            </div>
             <Button href="#services" variant="secondary" size="lg">
               Explore Services
             </Button>
@@ -160,8 +202,6 @@ export default function Hero() {
           transition={{ delay: 1.5, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         />
       </motion.div>
-
-
     </section>
   );
 }
