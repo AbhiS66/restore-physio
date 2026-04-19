@@ -22,16 +22,17 @@ export default function CTASection() {
             </Button>
           </div>
           {/* Mobile: Call directly */}
-          <div className="md:hidden">
-            <a
+          <div className="block md:hidden">
+            <Button
               href="tel:+917738556911"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide transition-all duration-400 cursor-pointer bg-sand text-charcoal hover:bg-cloud px-10 py-4 text-base"
+              variant="light"              
+              size="lg"
             >
               Book Your Consultation
               <ArrowRight />
-            </a>
+            </Button>
           </div>
         </RevealOnScroll>
       </div>

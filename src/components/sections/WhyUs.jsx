@@ -30,7 +30,7 @@ export default function WhyUs() {
     <section id="why-us" className="bg-midnight py-24 md:py-32 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-20">
         <div className="text-center mb-16 md:mb-20 max-w-2xl mx-auto">
-          <SectionLabel className="!text-primary/60">Why Restore</SectionLabel>
+          <SectionLabel className="!text-primary/60">Why US</SectionLabel>
           <RevealOnScroll>
             <h2 className="text-h1 text-snow">
               Four pillars of exceptional care
