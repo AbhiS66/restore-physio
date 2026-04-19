@@ -10,7 +10,6 @@ const links = [
   { label: "Services", href: "/#services" },
   { label: "Conditions", href: "/#conditions" },
   { label: "Testimonials", href: "/#testimonials" },
-  { label: "Contact", href: "/#contact" },
 ];
 
 const PHONE_HREF = "tel:+917738556911";
@@ -112,31 +111,6 @@ export default function Navbar() {
                 {link.label}
               </motion.a>
             ))}
-            <motion.div
-              className="flex flex-col gap-4 pt-8 border-t border-charcoal/10 w-full px-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.4 }}
-            >
-              {/* Desktop: Scroll to contact */}
-              <div className="hidden md:block">
-                <Button href="#contact" onClick={() => setMobileOpen(false)}>
-                  Book Consultation
-                </Button>
-              </div>
-              {/* Mobile: Call directly */}
-              <div className="md:hidden">
-                <a
-                  href="tel:+917738556911"
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={() => setMobileOpen(false)}
-                  className="inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide transition-all duration-400 cursor-pointer bg-primary-deep text-snow hover:bg-primary-dark px-8 py-3 text-sm"
-                >
-                  Book Consultation
-                </a>
-              </div>
-            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
