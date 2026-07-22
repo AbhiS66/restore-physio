@@ -14,6 +14,7 @@ import TreatmentPage from "../pages/TreatmentPage";
 import TechniquePage from "../pages/TechniquePage";
 import ServiceDetailPage from "../pages/ServiceDetailPage";
 import BlogPage from "../pages/BlogPage";
+import BlogIndexPage from "../pages/BlogIndexPage";
 import LandingPage from "../pages/LandingPage";
 import TeamPage from "../pages/TeamPage";
 
@@ -80,6 +81,7 @@ export const allRoutes = [
   ...blogRoutes,
   ...landingRoutes,
   { path: "/team", pageType: "team" },
+  { path: "/blog", pageType: "blog-index" },
 ];
 
 // ─── Page Component Map ──────────────────────────────────────────────
@@ -93,6 +95,7 @@ export const pageComponentMap = {
   blog: BlogPage,
   landing: LandingPage,
   team: TeamPage,
+  "blog-index": BlogIndexPage,
 };
 
 // ─── Helpers ─────────────────────────────────────────────────────────

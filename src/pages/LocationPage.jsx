@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { getLocationBySlug, SITE_URL } from "../data/locations";
+import { getLocationBySlug, SITE_URL, SAME_AS_URLS } from "../data/locations";
 import SEOHead from "../components/SEOHead";
 import About from "../components/sections/About";
 import Services from "../components/sections/Services";
@@ -165,10 +165,11 @@ function buildLocationSchema(location) {
     name: `Adapt Physiotherapy - ${location.name}`,
     url: location.canonical,
     logo: `${SITE_URL}/favicon.png`,
-    image: `${SITE_URL}/og-image.jpg`,
+    image: `${SITE_URL}/og-image.png`,
     description: location.metaDescription,
     telephone: "+917738556911",
     email: location.email,
+    sameAs: SAME_AS_URLS,
     address: {
       "@type": "PostalAddress",
       streetAddress: location.fullAddress,
@@ -270,6 +271,10 @@ export default function LocationPage({ slug }) {
         description={location.metaDescription}
         canonical={location.canonical}
         schema={buildLocationSchema(location)}
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: `Physiotherapy in ${location.name}`, url: `/physiotherapy-in-${location.slug}` },
+        ]}
       />
       <LocationHero location={location} />
       <About />

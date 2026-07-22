@@ -24,6 +24,10 @@ export default function TreatmentPage({ slug }) {
         description={page.description}
         canonical={`${SITE_URL}${page.path}`}
         schema={buildTreatmentSchema(page)}
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: page.title.split("|")[0].trim(), url: page.path },
+        ]}
       />
 
       <SectionWrapper id="hero" bg="bg-cloud">

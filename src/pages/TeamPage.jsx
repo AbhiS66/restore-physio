@@ -7,7 +7,7 @@ import RevealOnScroll, { RevealItem } from "../components/ui/RevealOnScroll";
 import Button from "../components/ui/Button";
 import { ArrowRight, ShieldIcon, HeartIcon, TargetIcon } from "../components/icons/Icons";
 import { getTeamMembersSorted } from "../data/team";
-import { SITE_URL } from "../data/locations";
+import { SITE_URL, SAME_AS_URLS } from "../data/locations";
 
 /* ─── Team Hero ───────────────────────────────────────────────────────── */
 function TeamHero() {
@@ -173,26 +173,48 @@ function TeamCTA() {
 
 /* ─── Schema ──────────────────────────────────────────────────────────── */
 function buildTeamSchema() {
-  return [
-    {
-      "@context": "https://schema.org",
-      "@type": "MedicalBusiness",
-      name: "Adapt Physiotherapy - Meet Our Team",
-      url: `${SITE_URL}/team`,
-      description:
-        "Meet the specialist physiotherapy team at Adapt Physiotherapy, Mumbai. Neuro, musculoskeletal, geriatric, and women's health physiotherapists serving Powai, Vikhroli and Mumbai.",
-      telephone: "+917738556911",
-      email: "adaptrehabilitation@gmail.com",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Galleria Shopping Mall, Central Ave, Hiranandani Gardens",
-        addressLocality: "Powai",
-        addressRegion: "Maharashtra",
-        postalCode: "400076",
-        addressCountry: "IN",
-      },
+  const members = getTeamMembersSorted();
+
+  const businessSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    name: "Adapt Physiotherapy - Meet Our Team",
+    url: `${SITE_URL}/team`,
+    description:
+      "Meet the specialist physiotherapy team at Adapt Physiotherapy, Mumbai. Neuro, musculoskeletal, geriatric, and women's health physiotherapists serving Powai, Vikhroli and Mumbai.",
+    telephone: "+917738556911",
+    email: "adaptrehabilitation@gmail.com",
+    sameAs: SAME_AS_URLS,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Galleria Shopping Mall, Central Ave, Hiranandani Gardens",
+      addressLocality: "Powai",
+      addressRegion: "Maharashtra",
+      postalCode: "400076",
+      addressCountry: "IN",
     },
-  ];
+  };
+
+  // Individual Person schema for each team member
+  const personSchemas = members.map((member) => ({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: member.name,
+    description: member.bio,
+    image: member.photoUrl ? `${SITE_URL}${member.photoUrl}` : undefined,
+    jobTitle: member.role,
+    knowsAbout: ["Physiotherapy", "Rehabilitation", "Pain Management"],
+    affiliation: {
+      "@type": "MedicalOrganization",
+      name: "Adapt Physiotherapy",
+    },
+    hasCredential: member.qualifications.map((q) => ({
+      "@type": "EducationalOccupationalCredential",
+      credentialName: q,
+    })),
+  }));
+
+  return [businessSchema, ...personSchemas];
 }
 
 /* ─── Page ────────────────────────────────────────────────────────────── */
@@ -204,6 +226,10 @@ export default function TeamPage() {
         description="Meet the specialist team at Adapt Physiotherapy - neuro, MSK, geriatric & women&#39;s health physiotherapists serving Powai, Vikhroli, and Mumbai. Book a consultation today."
         canonical={`${SITE_URL}/team`}
         schema={buildTeamSchema()}
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Our Team", url: "/team" },
+        ]}
       />
       <TeamHero />
       <TeamGrid />

@@ -213,6 +213,11 @@ export default function TechniquePage({ slug }) {
         description={page.metaDescription}
         canonical={`${SITE_URL}${page.path}`}
         schema={buildTechniqueSchema(page)}
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Techniques", url: "" },
+          { name: page.title.split("|")[0].trim(), url: page.path },
+        ]}
       />
       <TechniqueHero page={page} />
       <WhatIsIt page={page} />

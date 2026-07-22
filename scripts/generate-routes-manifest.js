@@ -1,0 +1,91 @@
+#!/usr/bin/env node
+
+/**
+ * Route Manifest Generator
+ *
+ * Reads the route data from src/data/ and generates public/routes.json
+ * for agentic browsing discovery.
+ *
+ * Usage: node scripts/generate-routes-manifest.js
+ */
+
+import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = resolve(__dirname, '..');
+
+// Known pages that are in the SPA router
+const PAGES = [
+  // Home
+  { path: '/', pageType: 'home', label: 'Home', priority: 1.0 },
+
+  // Location pages (14)
+  { path: '/physiotherapy-in-powai', pageType: 'location', label: 'Physiotherapy in Powai', priority: 0.8, slug: 'powai' },
+  { path: '/physiotherapy-in-vikhroli', pageType: 'location', label: 'Physiotherapy in Vikhroli', priority: 0.8, slug: 'vikhroli' },
+  { path: '/physiotherapy-in-hiranandani', pageType: 'location', label: 'Physiotherapy in Hiranandani', priority: 0.8, slug: 'hiranandani' },
+  { path: '/physiotherapy-in-bhandup', pageType: 'location', label: 'Physiotherapy in Bhandup', priority: 0.8, slug: 'bhandup' },
+  { path: '/physiotherapy-in-kanjurmarg', pageType: 'location', label: 'Physiotherapy in Kanjurmarg', priority: 0.8, slug: 'kanjurmarg' },
+  { path: '/physiotherapy-in-chandivali', pageType: 'location', label: 'Physiotherapy in Chandivali', priority: 0.8, slug: 'chandivali' },
+  { path: '/physiotherapy-in-ghatkopar', pageType: 'location', label: 'Physiotherapy in Ghatkopar', priority: 0.8, slug: 'ghatkopar' },
+  { path: '/physiotherapy-in-sakinaka', pageType: 'location', label: 'Physiotherapy in Sakinaka', priority: 0.8, slug: 'sakinaka' },
+  { path: '/physiotherapy-in-marolnaka', pageType: 'location', label: 'Physiotherapy in Marol Naka', priority: 0.8, slug: 'marolnaka' },
+  { path: '/physiotherapy-in-lt-powai', pageType: 'location', label: 'Physiotherapy in L&T Powai', priority: 0.8, slug: 'lt-powai' },
+  { path: '/physiotherapy-in-raheja-vihar', pageType: 'location', label: 'Physiotherapy in Raheja Vihar', priority: 0.8, slug: 'raheja-vihar' },
+  { path: '/physiotherapy-in-lake-homes', pageType: 'location', label: 'Physiotherapy in Lake Homes', priority: 0.8, slug: 'lake-homes' },
+  { path: '/physiotherapy-in-highland-gardens', pageType: 'location', label: 'Physiotherapy in Hiranandani Highlands', priority: 0.8, slug: 'highland-gardens' },
+  { path: '/physiotherapy-in-nahar', pageType: 'location', label: 'Physiotherapy in Nahar', priority: 0.8, slug: 'nahar' },
+
+  // Treatment pages (3)
+  { path: '/back-pain-treatment-powai', pageType: 'treatment', label: 'Back Pain Treatment in Powai', priority: 0.7 },
+  { path: '/sports-injury-rehab-mumbai', pageType: 'treatment', label: 'Sports Injury Rehab in Mumbai', priority: 0.7 },
+  { path: '/knee-pain-physio-powai', pageType: 'treatment', label: 'Knee Pain Physio in Powai', priority: 0.7 },
+
+  // Technique pages (7)
+  { path: '/techniques/interferential-therapy', pageType: 'technique', label: 'Interferential Therapy', priority: 0.6 },
+  { path: '/techniques/k-taping', pageType: 'technique', label: 'K-Taping', priority: 0.6 },
+  { path: '/techniques/shockwave', pageType: 'technique', label: 'Shockwave Therapy', priority: 0.6 },
+  { path: '/techniques/tens', pageType: 'technique', label: 'TENS Therapy', priority: 0.6 },
+  { path: '/techniques/ultrasound', pageType: 'technique', label: 'Ultrasound Therapy', priority: 0.6 },
+  { path: '/techniques/laser', pageType: 'technique', label: 'Laser Therapy', priority: 0.6 },
+  { path: '/techniques/manual-therapy', pageType: 'technique', label: 'Manual Therapy', priority: 0.6 },
+
+  // Service pages (9)
+  { path: '/services/home-visit-physiotherapy', pageType: 'service', label: 'Home Visit Physiotherapy', priority: 0.7 },
+  { path: '/services/knee-pain', pageType: 'service', label: 'Knee Pain Treatment', priority: 0.7 },
+  { path: '/services/back-pain', pageType: 'service', label: 'Back Pain Treatment', priority: 0.7 },
+  { path: '/services/neck-pain', pageType: 'service', label: 'Neck Pain Treatment', priority: 0.7 },
+  { path: '/services/parkinsons', pageType: 'service', label: "Parkinson's Rehab", priority: 0.7 },
+  { path: '/services/stroke', pageType: 'service', label: 'Stroke Rehab', priority: 0.7 },
+  { path: '/services/tkr-rehab', pageType: 'service', label: 'Knee TKR Rehab', priority: 0.7 },
+  { path: '/services/post-surgery', pageType: 'service', label: 'Post-Surgery Rehab', priority: 0.7 },
+  { path: '/services/paediatric', pageType: 'service', label: 'Paediatric Physiotherapy', priority: 0.7 },
+
+  // Blog pages (6)
+  { path: '/blog/cost-of-home-physiotherapy-mumbai', pageType: 'blog', label: 'Cost of Home Physiotherapy Mumbai', priority: 0.5 },
+  { path: '/blog/cost-of-home-physiotherapy-thane', pageType: 'blog', label: 'Cost of Home Physiotherapy Thane', priority: 0.5 },
+  { path: '/blog/cost-of-home-physiotherapy-powai', pageType: 'blog', label: 'Cost of Home Physiotherapy Powai', priority: 0.5 },
+  { path: '/blog/cost-of-home-physiotherapy-sakinaka', pageType: 'blog', label: 'Cost of Home Physiotherapy Sakinaka', priority: 0.5 },
+  { path: '/blog/cost-of-home-physiotherapy-marolnaka', pageType: 'blog', label: 'Cost of Home Physiotherapy Marol Naka', priority: 0.5 },
+  { path: '/blog/home-physiotherapy-after-knee-surgery', pageType: 'blog', label: 'Home Physiotherapy After Knee Surgery', priority: 0.5 },
+
+  // Landing pages (1)
+  { path: '/home-physiotherapy-powai', pageType: 'landing', label: 'Home Physiotherapy in Powai', priority: 0.8 },
+
+  // Team
+  { path: '/team', pageType: 'team', label: 'Meet the Team', priority: 0.6 },
+];
+
+const manifest = {
+  version: 1,
+  totalRoutes: PAGES.length,
+  siteUrl: 'https://www.adaptphysiotherapy.in',
+  generatedAt: new Date().toISOString(),
+  description: 'Route manifest for agentic browsing. An AI agent fetches this to discover all pages on the site.',
+  routes: PAGES,
+};
+
+const outputPath = resolve(ROOT, 'public', 'routes.json');
+writeFileSync(outputPath, JSON.stringify(manifest, null, 2), 'utf-8');
+console.log(`✅ Generated ${outputPath} — ${manifest.totalRoutes} routes`);

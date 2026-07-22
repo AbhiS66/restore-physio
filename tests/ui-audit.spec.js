@@ -9,15 +9,25 @@ const VIEWPORTS = [
   { name: 'Large Desktop', width: 1920, height: 1080 }
 ];
 
-const PAGES_TO_AUDIT = [
-  { name: 'Homepage', path: '/' },
-  { name: 'Powai Location', path: '/physiotherapy-in-powai' },
-  { name: 'Vikhroli Location', path: '/physiotherapy-in-vikhroli' },
-  { name: 'Hiranandani Location', path: '/physiotherapy-in-hiranandani' },
-  { name: 'Back Pain Treatment', path: '/back-pain-treatment-powai' },
-  { name: 'Sports Injury Rehab', path: '/sports-injury-rehab-mumbai' },
-  { name: 'Knee Pain Physio', path: '/knee-pain-physio-powai' }
-];
+// Discover routes from the route manifest for dynamic coverage
+// Falls back to default pages if manifest unavailable
+const DISCOVERED_ROUTES = [];
+
+async function discoverRoutes(page) {
+  try {
+    const resp = await page.goto(`${BASE_URL}/routes.json`);
+    if (resp.ok()) {
+      const manifest = await resp.json();
+      console.log(`\n📋 Dynamically discovered ${manifest.totalRoutes} routes from manifest\n`);
+      return manifest.routes;
+    }
+  } catch {
+    // Fall through to default
+  }
+  return null;
+}
+
+const PAGES_TO_AUDIT = []; // Will be populated dynamically
 
 /**
  * UI Audit Test Suite
@@ -27,6 +37,47 @@ test.describe('UI Audit Suite - Visual Consistency', () => {
   test.beforeEach(async ({ page }) => {
     // Verify page loads successfully
     test.setTimeout(60000);
+
+    // Populate PAGES_TO_AUDIT from route manifest if not already done
+    if (PAGES_TO_AUDIT.length === 0) {
+      const routes = await discoverRoutes(page);
+      if (routes && routes.length > 0) {
+        // Sample up to 20 pages covering all page types for the detailed audit
+        const types = new Set();
+        const sampled = [];
+        for (const r of routes) {
+          if (!types.has(r.pageType) && r.path !== '/') {
+            types.add(r.pageType);
+            sampled.push({ name: r.label, path: r.path });
+          }
+          // Also add all high-priority pages
+        }
+        // Add one of each type + all high-priority (home, location, landing, treatment)
+        const allHigh = routes
+          .filter(r => r.priority >= 0.7 && r.path !== '/')
+          .map(r => ({ name: r.label, path: r.path }));
+        const seen = new Set(allHigh.map(r => r.path));
+        const uniqueSampled = sampled.filter(r => !seen.has(r.path));
+        PAGES_TO_AUDIT.push(...allHigh, ...uniqueSampled);
+        // Cap at 20 pages for CI speed
+        if (PAGES_TO_AUDIT.length > 20) {
+          PAGES_TO_AUDIT.length = 20;
+        }
+        console.log(`  → Auditing ${PAGES_TO_AUDIT.length} dynamically discovered pages`);
+      } else {
+        PAGES_TO_AUDIT.push(
+          { name: 'Homepage', path: '/' },
+          { name: 'Powai Location', path: '/physiotherapy-in-powai' },
+          { name: 'Vikhroli Location', path: '/physiotherapy-in-vikhroli' },
+          { name: 'Hiranandani Location', path: '/physiotherapy-in-hiranandani' },
+          { name: 'Back Pain Treatment', path: '/back-pain-treatment-powai' },
+          { name: 'Sports Injury Rehab', path: '/sports-injury-rehab-mumbai' },
+          { name: 'Knee Pain Physio', path: '/knee-pain-physio-powai' }
+        );
+        console.log('  → Using default pages (manifest not available)');
+      }
+    }
+
     await page.goto(BASE_URL);
   });
 

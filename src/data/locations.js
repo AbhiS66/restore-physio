@@ -3,6 +3,10 @@
 
 export const SITE_URL = "https://www.adaptphysiotherapy.in";
 
+export const SAME_AS_URLS = [
+  "https://wa.me/917738556911",
+];
+
 export const locationRouteMap = {
   powai: "/physiotherapy-in-powai",
   vikhroli: "/physiotherapy-in-vikhroli",

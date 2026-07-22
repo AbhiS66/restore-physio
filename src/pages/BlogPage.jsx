@@ -106,6 +106,11 @@ export default function BlogPage({ slug }) {
         description={page.metaDescription}
         canonical={`${SITE_URL}${page.path}`}
         schema={buildBlogPageSchema(page)}
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Blog", url: "/blog" },
+          { name: page.title.split("|")[0].trim(), url: page.path },
+        ]}
       />
       <BlogHero page={page} />
       <ProseSection page={page} />

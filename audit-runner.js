@@ -13,6 +13,15 @@ const VIEWPORTS = [
   { name: 'Mobile', width: 375, height: 667 }
 ];
 
+// ─── Agentic mode: discover routes dynamically ───────────────────
+
+async function discoverRoutes(page) {
+  const resp = await page.goto(`${BASE_URL}/routes.json`);
+  const manifest = await resp.json();
+  console.log(`\n📋 Agentic discovery: ${manifest.totalRoutes} routes found\n`);
+  return manifest;
+}
+
 const PAGES = [
   { name: 'Homepage', path: '/' },
   { name: 'Powai Location', path: '/physiotherapy-in-powai' }

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OG Image</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1200px; height: 630px; overflow: hidden; font-family: system-ui, -apple-system, sans-serif; }
+
+  .container {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #0f2b3d 0%, #1a4a5a 30%, #2d6a7a 60%, #0f2b3d 100%);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 60px 80px;
+    position: relative;
+  }
+
+  /* Decorative elements */
+  .circle-1 {
+    position: absolute; top: -120px; right: -120px; width: 500px; height: 500px;
+    border-radius: 50%; background: rgba(69, 160, 173, 0.15);
+  }
+  .circle-2 {
+    position: absolute; bottom: -180px; left: -80px; width: 400px; height: 400px;
+    border-radius: 50%; background: rgba(193, 154, 107, 0.1);
+  }
+  .accent-line {
+    position: absolute; top: 0; left: 0; width: 8px; height: 100%;
+    background: linear-gradient(180deg, #c19a6b, #45a0ad, #c19a6b);
+  }
+
+  .content { position: relative; z-index: 1; text-align: center; max-width: 900px; }
+
+  .logo {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 72px; font-weight: 700; color: #ffffff;
+    letter-spacing: -1px; margin-bottom: 8px;
+  }
+  .logo-accent { color: #c19a6b; }
+
+  .tagline {
+    font-size: 28px; color: rgba(255,255,255,0.85);
+    font-weight: 400; letter-spacing: 0.3px;
+    margin-bottom: 40px;
+  }
+
+  .divider {
+    width: 100px; height: 3px;
+    background: linear-gradient(90deg, #c19a6b, #45a0ad);
+    margin: 0 auto 36px; border-radius: 2px;
+  }
+
+  .badge-row {
+    display: flex; justify-content: center; gap: 40px;
+  }
+  .badge {
+    text-align: center;
+  }
+  .badge-value {
+    font-size: 36px; font-weight: 700; color: #45a0ad;
+  }
+  .badge-label {
+    font-size: 16px; color: rgba(255,255,255,0.7);
+    text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;
+  }
+
+  .footer {
+    position: absolute; bottom: 28px; left: 0; right: 0; text-align: center;
+    font-size: 15px; color: rgba(255,255,255,0.5);
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="circle-1"></div>
+  <div class="circle-2"></div>
+  <div class="accent-line"></div>
+
+  <div class="content">
+    <div class="logo">
+      Adapt <span class="logo-accent">Physiotherapy</span>
+    </div>
+    <div class="tagline">Expert Physiotherapy in Mumbai — In-Clinic &amp; At Home</div>
+    <div class="divider"></div>
+    <div class="badge-row">
+      <div class="badge">
+        <div class="badge-value">6+ Years</div>
+        <div class="badge-label">Experience</div>
+      </div>
+      <div class="badge">
+        <div class="badge-value">1500+</div>
+        <div class="badge-label">Patients Treated</div>
+      </div>
+      <div class="badge">
+        <div class="badge-value">4.9/5</div>
+        <div class="badge-label">Patient Rating</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">adaptphysiotherapy.in &bull; +91 77385 56911</div>
+</div>
+</body>
+</html>

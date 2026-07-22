@@ -3,15 +3,11 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-  <!-- Homepage -->
   <url>
     <loc>https://www.adaptphysiotherapy.in/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Location Pages -->
   <url>
     <loc>https://www.adaptphysiotherapy.in/physiotherapy-in-powai</loc>
     <changefreq>monthly</changefreq>
@@ -25,10 +21,63 @@
   <url>
     <loc>https://www.adaptphysiotherapy.in/physiotherapy-in-hiranandani</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
-
-  <!-- Treatment Content Pages -->
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/physiotherapy-in-bhandup</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/physiotherapy-in-kanjurmarg</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/physiotherapy-in-chandivali</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/physiotherapy-in-ghatkopar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/physiotherapy-in-sakinaka</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/physiotherapy-in-marolnaka</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/physiotherapy-in-lt-powai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/physiotherapy-in-raheja-vihar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/physiotherapy-in-lake-homes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/physiotherapy-in-highland-gardens</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/physiotherapy-in-nahar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <url>
     <loc>https://www.adaptphysiotherapy.in/back-pain-treatment-powai</loc>
     <changefreq>monthly</changefreq>
@@ -44,5 +93,129 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/services/home-visit-physiotherapy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/services/knee-pain-physiotherapy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/services/back-pain-physiotherapy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/services/neck-pain-physiotherapy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/services/parkinsons-rehabilitation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/services/stroke-rehabilitation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/services/knee-replacement-rehab</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/services/post-surgery-rehabilitation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/services/paediatric-physiotherapy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/techniques/interferential-therapy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/techniques/tens-therapy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/techniques/manual-therapy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/techniques/kinesiology-taping</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/techniques/laser-therapy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/techniques/ultrasound-therapy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/techniques/shockwave-therapy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/blog/cost-of-home-physiotherapy-mumbai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/blog/cost-of-home-physiotherapy-thane</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/blog/cost-of-home-physiotherapy-powai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/blog/cost-of-home-physiotherapy-saki-naka</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/blog/cost-of-home-physiotherapy-marol-naka</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/blog/home-physiotherapy-after-knee-surgery</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/home-physiotherapy-powai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/team</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.adaptphysiotherapy.in/blog</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

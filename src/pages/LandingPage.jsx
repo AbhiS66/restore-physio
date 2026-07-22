@@ -303,6 +303,10 @@ export default function LandingPage({ slug }) {
         description={page.metaDescription}
         canonical={`${SITE_URL}${page.path}`}
         schema={buildLandingPageSchema(page)}
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: page.title.split("|")[0].trim(), url: page.path },
+        ]}
       />
       <LandingHero page={page} />
       <PainPoints page={page} />

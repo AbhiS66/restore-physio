@@ -7,7 +7,7 @@ import Testimonials from "../components/sections/Testimonials";
 import WhyUs from "../components/sections/WhyUs";
 import CTASection from "../components/sections/CTASection";
 import Contact from "../components/sections/Contact";
-import { SITE_URL } from "../data/locations";
+import { SITE_URL, SAME_AS_URLS } from "../data/locations";
 
 const homeSchema = {
   "@context": "https://schema.org",
@@ -15,7 +15,7 @@ const homeSchema = {
   name: "Adapt Physiotherapy",
   url: SITE_URL,
   logo: `${SITE_URL}/favicon.png`,
-  image: `${SITE_URL}/og-image.jpg`,
+  image: `${SITE_URL}/og-image.png`,
   description:
     "Premium evidence-based physiotherapy in Mumbai. Neuro, ortho, cardio pulmonary physiotherapy & home visits in Powai and Vikhroli.",
   telephone: "+917738556911",
@@ -48,7 +48,7 @@ const homeSchema = {
     "Neurological Physiotherapy",
     "Orthopaedic Physiotherapy",
   ],
-  sameAs: [],
+  sameAs: SAME_AS_URLS,
   areaServed: [
     { "@type": "City", name: "Mumbai" },
     { "@type": "Neighborhood", name: "Powai" },

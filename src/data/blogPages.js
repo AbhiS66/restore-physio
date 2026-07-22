@@ -10,6 +10,8 @@ export const blogPages = [
     title: "Cost of Home Physiotherapy in Mumbai (2026) | Adapt Physiotherapy",
     metaDescription:
       "Complete guide to home physiotherapy costs in Mumbai. Per-session rates, package pricing, factors affecting cost, and how to get the best value for home-based physio care.",
+    datePublished: "2026-01-15",
+    dateModified: "2026-03-10",
     heroHeading: "What Does Home Physiotherapy Cost in Mumbai?",
     heroSubtext:
       "A transparent breakdown of home physiotherapy pricing across Mumbai - per-session costs, package rates, factors that influence pricing, and what you should expect to pay for quality home-based care in 2026.",
@@ -73,6 +75,8 @@ export const blogPages = [
     title: "Cost of Home Physiotherapy in Thane (2026) | Adapt Physiotherapy",
     metaDescription:
       "Home physiotherapy costs in Thane explained. Per-session pricing, packages, factors specific to Thane, and tips for finding quality home physio care.",
+    datePublished: "2026-02-01",
+    dateModified: "2026-03-10",
     heroHeading: "What Does Home Physiotherapy Cost in Thane?",
     heroSubtext:
       "A practical guide to home physiotherapy pricing in Thane - session rates, package options, Thane-specific travel considerations, and how to get the best care for your budget.",
@@ -118,6 +122,8 @@ export const blogPages = [
     title: "Cost of Home Physiotherapy in Powai (2026) | Adapt Physiotherapy",
     metaDescription:
       "Home physiotherapy cost in Powai, Mumbai. Per-session rates, package deals, and what Hiranandani and IIT Bombay residents should expect to pay for home physio in 2026.",
+    datePublished: "2026-02-15",
+    dateModified: "2026-03-10",
     heroHeading: "What Does Home Physiotherapy Cost in Powai?",
     heroSubtext:
       "Powai-specific breakdown of home physiotherapy costs - from Hiranandani Gardens to IIT Bombay campus, including package pricing structures and what makes Powai pricing unique.",
@@ -164,6 +170,8 @@ export const blogPages = [
     title: "Cost of Home Physiotherapy in Saki Naka (2026) | Adapt Physiotherapy",
     metaDescription:
       "Home physiotherapy costs in Saki Naka, Mumbai. Session pricing, package deals, and what residents of Saki Naka and surrounding areas should budget for quality home physio.",
+    datePublished: "2026-03-01",
+    dateModified: "2026-03-10",
     heroHeading: "What Does Home Physiotherapy Cost in Saki Naka?",
     heroSubtext:
       "A practical cost guide for Saki Naka residents - session pricing, travel considerations, package options, and how to access quality home physiotherapy near Saki Naka and the Andheri-Kurla belt.",
@@ -209,6 +217,8 @@ export const blogPages = [
     title: "Cost of Home Physiotherapy in Marol Naka (2026) | Adapt Physiotherapy",
     metaDescription:
       "Home physiotherapy pricing in Marol Naka, Mumbai. Session costs, packages, and how Marol Naka residents can access quality home-based physiotherapy care.",
+    datePublished: "2026-03-15",
+    dateModified: "2026-03-20",
     heroHeading: "What Does Home Physiotherapy Cost in Marol Naka?",
     heroSubtext:
       "A cost guide for Marol Naka and the Andheri East/MIDC belt - session rates, package structures, provider availability, and practical tips for getting the best home physiotherapy value.",
@@ -254,6 +264,8 @@ export const blogPages = [
     title: "Home Physiotherapy After Knee Surgery | Adapt Physiotherapy",
     metaDescription:
       "Complete guide to home physiotherapy after knee surgery - TKR, ACL, meniscus repair. What to expect, timeline, exercises, costs, and how to maximise recovery at home.",
+    datePublished: "2026-04-01",
+    dateModified: "2026-04-15",
     heroHeading: "Home Physiotherapy After Knee Surgery: Your Recovery Roadmap",
     heroSubtext:
       "A practical, comprehensive guide on what to expect from home physiotherapy after knee surgery - whether TKR, ACL reconstruction, or meniscus repair - from the first post-op week to independent walking.",
@@ -323,6 +335,8 @@ export function buildBlogPageSchema(page) {
       description: page.metaDescription,
       about: ["Physiotherapy", "Home Health Care", "Rehabilitation"],
       audience: { "@type": "MedicalAudience", audienceType: "Patients and Caregivers" },
+      datePublished: page.datePublished,
+      dateModified: page.dateModified,
     },
     {
       "@context": "https://schema.org",

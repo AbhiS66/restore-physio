@@ -1,12 +1,14 @@
-# Using Playwright MCP for UI Auditing
+# Using Playwright MCP for UI Auditing & Agentic Browsing
 
-This guide explains how to use Playwright MCP (Model Context Protocol) server for auditing UI issues in Chrome.
+This guide explains how to use Playwright MCP (Model Context Protocol) server for auditing UI issues in Chrome and for **agentic browsing** — where an AI agent autonomously discovers, navigates, and verifies every page on the site.
 
 ## Current Setup Status
 
 ✅ Playwright MCP server is configured in `.vscode/mcp.json`  
 ✅ The server is set to run with Chrome browser  
 ✅ Comprehensive UI audit tests created in `tests/ui-audit.spec.js`  
+✅ Route manifest at `/routes.json` for agent page discovery  
+✅ Agentic browsing tests in `tests/agentic-browsing.spec.js`  
 
 ## What is MCP?
 
@@ -164,8 +166,117 @@ The test suite will flag issues like:
 - You may need to restart Claude/VSCode for tools to appear
 - Alternative: Run tests directly with `npx playwright test`
 
+---
+
+## Agentic Browsing with MCP
+
+This site includes full support for **agentic browsing** — an AI agent (Claude with Playwright MCP) can autonomously navigate and verify the entire site.
+
+### How It Works
+
+1. **Route Discovery** — The agent fetches `/routes.json` (a static manifest served by Vite) to discover all 42+ pages
+2. **Systematic Crawl** — The agent visits each page, verifying rendering, SEO, and content
+3. **Reporting** — The agent collects metrics and reports issues
+
+### Route Manifest
+
+The file `public/routes.json` is the agent's entry point. It returns:
+
+```json
+{
+  "version": 1,
+  "totalRoutes": 42,
+  "siteUrl": "https://www.adaptphysiotherapy.in",
+  "routes": [
+    { "path": "/", "pageType": "home", "label": "Home", "priority": 1.0 },
+    { "path": "/physiotherapy-in-powai", "pageType": "location", "label": "Physiotherapy in Powai", "priority": 0.8 },
+    ...
+  ]
+}
+```
+
+Every route includes: `path`, `pageType`, `label`, and `priority`. The agent uses `priority` to decide what to crawl first.
+
+### Page Types
+
+| Page Type  | Template           | Count | Agent Verification Strategy |
+|------------|--------------------|-------|-----------------------------|
+| `home`     | HomePage           | 1     | Hero, sections, schema      |
+| `location` | LocationPage       | 14    | Location data, FAQs, nearby |
+| `treatment` | TreatmentPage     | 3     | Content points, related locs|
+| `technique` | TechniquePage     | 7     | What/how/benefits sections  |
+| `service`  | ServiceDetailPage  | 9     | Approach steps, outcomes    |
+| `blog`     | BlogPage           | 6     | Article body, FAQ accordion |
+| `landing`  | LandingPage        | 1     | Pricing, trust signals, CTA |
+| `team`     | TeamPage           | 1     | Member cards, credentials   |
+
+### Agentic Browsing Workflow
+
+An AI agent follows this workflow:
+
+```
+1. FETCH /routes.json               → Discover all pages
+2. PRIORITIZE by pageType/priority   → High-value pages first
+3. FOR each route:
+   a. NAVIGATE to {path}
+   b. VERIFY: no overflow, no console errors, h1 exists
+   c. CHECK SEO: title, metaDescription, canonical, schema scripts
+   d. SCAN: images load, internal links exist
+   e. REPORT: pass/fail with details
+4. CROSS-CHECK: nav consistency, unique titles, link integrity
+5. SUMMARIZE: metrics, pass rate, issues found
+```
+
+### Example Agent Prompts
+
+**Full site audit:**
+> Navigate to http://localhost:5174/routes.json. Parse the JSON to discover all routes. Then visit each route and verify: page loads without overflow, h1 is present, console has no errors, and the canonical URL is correct. Report a summary.
+
+**SEO check:**
+> Fetch routes.json and visit every page. For each page, extract the title tag, meta description, canonical URL, and any JSON-LD schema scripts. Report which pages are missing any of these.
+
+**Broken link check:**
+> Fetch routes.json, then visit every page and collect all internal anchor links. Verify each link resolves to a 200 status. Report broken links.
+
+**Mobile responsive check:**
+> Set viewport to 375x667. Fetch routes.json and visit every page. Check for horizontal overflow on each page. Report which pages overflow.
+
+### Running Agentic Tests
+
+```bash
+# Run the agentic browsing test suite (samples pages for CI speed)
+npx playwright test tests/agentic-browsing.spec.js
+
+# Run with full crawl (visits every page — slower but thorough)
+npx playwright test tests/agentic-browsing.spec.js --grep "Full Agentic Crawl"
+
+# Run SEO checks only
+npx playwright test tests/agentic-browsing.spec.js --grep "SEO Metadata"
+
+# Generate report
+npx playwright show-report
+```
+
+### Regenerating the Route Manifest
+
+After adding new pages, regenerate `public/routes.json`:
+
+```bash
+npm run build  # Vite plugin auto-generates the manifest
+```
+
+Or run the manifest generator directly:
+
+```bash
+node scripts/generate-routes-manifest.js
+```
+
+---
+
 ## Additional Resources
 
 - [Playwright Documentation](https://playwright.dev/)
 - [MCP Protocol](https://modelcontextprotocol.io/)
 - [Microsoft Playwright MCP](https://github.com/microsoft/playwright-mcp)
+- [Agentic Browsing Tests](../tests/agentic-browsing.spec.js)
+- [Route Manifest](../public/routes.json)

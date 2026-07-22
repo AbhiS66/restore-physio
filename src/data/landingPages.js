@@ -1,7 +1,7 @@
 // GBP (Google Business Profile) landing pages - conversion-focused.
 // Each entry drives a LandingPage template.
 
-import { SITE_URL } from "./locations";
+import { SITE_URL, SAME_AS_URLS } from "./locations";
 
 export const landingPages = [
   {
@@ -139,6 +139,7 @@ export function buildLandingPageSchema(page) {
       description: page.metaDescription,
       telephone: "+917738556911",
       email: "adaptrehabilitation@gmail.com",
+      sameAs: SAME_AS_URLS,
       address: {
         "@type": "PostalAddress",
         streetAddress: "Galleria Shopping Mall, Central Ave, Hiranandani Gardens",

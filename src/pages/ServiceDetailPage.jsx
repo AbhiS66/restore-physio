@@ -215,6 +215,10 @@ export default function ServiceDetailPage({ slug }) {
         description={page.metaDescription}
         canonical={`${SITE_URL}${page.path}`}
         schema={buildServicePageSchema(page)}
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: page.title.split("|")[0].trim(), url: page.path },
+        ]}
       />
       <ServiceHero page={page} />
       <ApproachSection page={page} />
