@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "generate": "node scripts/generate-sitemap.mjs && node scripts/generate-og-image.mjs",
-    "build": "npm run generate && node scripts/generate-routes-manifest.js && vite build && node scripts/prerender.mjs",
+    "build": "playwright install chromium && npm run generate && node scripts/generate-routes-manifest.js && vite build && node scripts/prerender.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "test:visual": "playwright test tests/color-system.spec.js",
@@ -14,7 +14,8 @@
     "test:agentic:full": "playwright test tests/agentic-browsing.spec.js --grep \"Full Agentic Crawl\"",
     "manifest": "node scripts/generate-routes-manifest.js",
     "audit:quick": "node audit-runner.js",
-    "preserve": "node scripts/generate-routes-manifest.js"
+    "preserve": "node scripts/generate-routes-manifest.js",
+    "postinstall": "playwright install chromium"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
@@ -37,5 +38,8 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.4.0",
     "vite": "^8.0.1"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }
