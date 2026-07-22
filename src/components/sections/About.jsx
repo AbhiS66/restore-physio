@@ -33,7 +33,8 @@ export default function About() {
         {/* Left - Pull quote + Stats */}
         <div className="flex flex-col justify-between">
           <div>
-            <SectionLabel>Our Philosophy</SectionLabel>
+            <h2 className="sr-only">Our Philosophy</h2>
+          <SectionLabel>Our Philosophy</SectionLabel>
             <RevealOnScroll>
               <blockquote className="text-h1 text-charcoal leading-tight mb-8">
                 <span className="text-primary">"</span>

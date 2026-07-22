@@ -68,6 +68,7 @@ export default function Contact({ locationData }) {
         <RevealOnScroll>
           {submitted ? (
             <motion.div
+              aria-live="polite"
               className="bg-primary-light/50 rounded-2xl p-12 text-center flex flex-col items-center justify-center min-h-[400px]"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -115,10 +116,11 @@ export default function Contact({ locationData }) {
                   placeholder="+91 98765 43210"
                 />
                 <div>
-                  <label className="text-label text-slate block mb-3">
+                  <label className="text-label text-slate block mb-3" htmlFor="condition">
                     Condition
                   </label>
                   <select
+                    id="condition"
                     name="condition"
                     value={formData.condition}
                     onChange={handleChange}
@@ -209,6 +211,8 @@ function FormField({ label, name, type, value, onChange, placeholder, required }
           value={value}
           onChange={onChange}
           placeholder={placeholder}
+          required={required}
+          aria-required={required}
           rows={4}
           className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-charcoal text-sm focus:outline-none focus:border-primary transition-colors resize-none placeholder:text-slate/40"
         />
@@ -221,6 +225,7 @@ function FormField({ label, name, type, value, onChange, placeholder, required }
           onChange={onChange}
           placeholder={placeholder}
           required={required}
+          aria-required={required}
           className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-charcoal text-sm focus:outline-none focus:border-primary transition-colors placeholder:text-slate/40"
         />
       )}

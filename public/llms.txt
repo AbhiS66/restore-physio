@@ -1,0 +1,100 @@
+# Adapt Physiotherapy — Website Guide for AI Agents
+
+> This file provides context about the Adapt Physiotherapy website for AI agents.
+> An agent should read this before browsing the site to understand the structure,
+> content types, and key information about the business.
+
+## Site Overview
+
+A React SPA (Vite + React Router) for Adapt Physiotherapy, a premium physiotherapy clinic based in Powai, Mumbai. The site serves hyper-local SEO landing pages for 14 Mumbai neighborhoods, 7 therapeutic technique pages, 9 service detail pages, 6 blog articles, and more — all driven by a unified data layer.
+
+**Tech stack:** Vite 8, React 19, React Router 7, Tailwind CSS 4, framer-motion
+**Route manifest:** /routes.json (42 routes, JSON format)
+
+## Key Business Facts
+
+- Name: Adapt Physiotherapy
+- Also operates as: Restore Physio
+- Type: MedicalBusiness / LocalBusiness
+- Founded: 2019
+- Phone: +91 77385 56911
+- Email: adaptrehabilitation@gmail.com
+- Address: Galleria Shopping Mall, Central Ave, Hiranandani Gardens, Powai, Mumbai 400076
+- Rating: 4.9/5 (1500+ patients)
+- Services: Neuro physiotherapy, MSK rehabilitation, sports injury rehab, geriatric care, women's health, paediatric physiotherapy, home visits
+- Specialties: Manual therapy, IFT, TENS, K-Taping, Shockwave (ESWT), Ultrasound, Laser therapy, McKenzie therapy, Maitland techniques, Pilates
+
+## Routes / Page Types
+
+### Home (1 page)
+- `/` — Landing page. Sections: Hero → About → Services → Conditions → Testimonials → WhyUs → CTA → Contact
+- Schema: MedicalBusiness
+
+### Location Pages (14 pages)
+- `/physiotherapy-in-{slug}` — Per-neighborhood pages. Slugs: powai, vikhroli, hiranandani, bhandup, kanjurmarg, chandivali, ghatkopar, sakinaka, marolnaka, lt-powai, raheja-vihar, lake-homes, highland-gardens, nahar
+- Structure: Hero → CommonConditions → WhyUs → NearbyLocations → FAQs → Contact
+- Schema: LocalBusiness + MedicalBusiness + FAQPage
+
+### Treatment Pages (3 pages)
+- `/back-pain-treatment-powai` — Back pain treatment in Powai
+- `/sports-injury-rehab-mumbai` — Sports injury rehab in Mumbai
+- `/knee-pain-physio-powai` — Knee pain physio in Powai
+- Structure: Hero → Points → RelatedLocations → FAQs
+- Schema: MedicalWebPage
+
+### Technique Pages (7 pages)
+- `/techniques/{slug}` — Slugs: interferential-therapy, k-taping, shockwave, tens, ultrasound, laser, manual-therapy
+- Structure: Hero → WhatIsIt → HowItWorks → Benefits → ConditionsTreated → FAQ → CTA
+- Schema: MedicalWebPage
+
+### Service Pages (9 pages)
+- `/services/{slug}` — Slugs: home-visit-physiotherapy, knee-pain, back-pain, neck-pain, parkinsons, stroke, tkr-rehab, post-surgery, paediatric
+- Structure: Hero → ApproachSteps → ExpectedOutcomes → FAQs → RelatedServices → CTA
+- Schema: MedicalWebPage
+
+### Blog Pages (6 pages)
+- `/blog/{slug}` — Cost guides and educational articles about physiotherapy in Mumbai
+- Structure: ArticleHero → RichContent → FAQAccordion → RelatedLinks → CTA
+- Schema: Article + FAQPage
+
+### Landing Page (1 page)
+- `/home-physiotherapy-powai` — GBP conversion page for home physiotherapy in Powai
+- Structure: ConversionHero → PainPoints → Benefits → TrustSignals → Pricing → FAQs → CTA
+- Schema: MedicalBusiness + FAQPage + Product (pricing tiers)
+
+### Team Page (1 page)
+- `/team` — Meet the team with 3 physiotherapist profiles
+- Structure: Hero → TeamGrid → Credentials → CTA
+- Schema: MedicalBusiness
+
+## Navigation
+
+- The Navbar is consistent across all pages (links: About, Services, Conditions, Testimonials)
+- The Footer contains links to locations, services, techniques, blog, and team
+- Internal linking is rich: location pages link to nearby locations, treatment pages link to related locations, service pages link to related services
+
+## Canonical URLs
+
+All pages use canonical URLs at `https://www.adaptphysiotherapy.in{path}`.
+
+## Agentic Browsing Tips
+
+1. **Start by reading /routes.json** to see all available routes with metadata (pageType, priority, label)
+2. **Crawl by priority**: start with pages where priority >= 0.7 (home, locations, treatments, services, landing)
+3. **Verify SEO** on every page: check title tag, meta description, canonical URL, h1, and JSON-LD schema scripts
+4. **Check internal links** by scanning `<a href>` elements and verifying they resolve to 200
+5. **Test responsive layout** at 375px width (common mobile breakpoint)
+6. **Verify consistency**: navbar should be the same across all page types
+
+## Example Agent Prompts
+
+- "Fetch /routes.json and visit every page. Report which pages have horizontal overflow at 375px viewport."
+- "Visit all location pages and verify they have a canonical URL, meta description, and schema markup."
+- "Check that all internal links across the site resolve to 200."
+- "Extract the pricing tiers from the home-physiotherapy-powai landing page."
+- "Verify every page has exactly one h1 and that titles are unique across the site."
+
+## Related Files
+
+- routes.json — Complete route manifest with 42 entries
+- sitemap.xml — XML sitemap for search engines

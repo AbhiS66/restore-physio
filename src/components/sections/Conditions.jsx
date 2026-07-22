@@ -47,6 +47,24 @@ export default function Conditions() {
     setShowScrollHint(false);
   };
 
+  const handleTabKeyDown = (e) => {
+    let newIndex;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      newIndex = (active + 1) % conditions.length;
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      newIndex = (active - 1 + conditions.length) % conditions.length;
+    } else if (e.key === "Home") {
+      newIndex = 0;
+    } else if (e.key === "End") {
+      newIndex = conditions.length - 1;
+    }
+    if (newIndex !== undefined) {
+      e.preventDefault();
+      setActive(newIndex);
+      setShowScrollHint(false);
+    }
+  };
+
   return (
     <SectionWrapper id="conditions" bg="bg-snow">
       <div className="mb-16 md:mb-20 max-w-2xl">
@@ -67,14 +85,21 @@ export default function Conditions() {
           {/* Tabs - vertical on desktop, horizontal scroll on mobile */}
           <div className="relative">
             <div
+              role="tablist"
               className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 snap-x snap-mandatory scrollbar-hide"
               style={{ WebkitOverflowScrolling: "touch" }}
               ref={tabsRef}
               onScroll={handleTabsScroll}
+              onKeyDown={handleTabKeyDown}
             >
               {conditions.map((condition, i) => (
                 <button
                   key={condition.id}
+                  role="tab"
+                  id={`condition-tab-${condition.id}`}
+                  aria-selected={active === i}
+                  aria-controls={`condition-panel-${condition.id}`}
+                  tabIndex={active === i ? 0 : -1}
                   onClick={() => handleTabClick(i)}
                   className={`text-left px-5 py-4 rounded-xl whitespace-nowrap lg:whitespace-normal transition-all duration-300 cursor-pointer flex-shrink-0 snap-start ${
                     active === i
@@ -114,7 +139,7 @@ export default function Conditions() {
           </div>
 
           {/* Content area */}
-          <div className="relative min-h-[280px]">
+          <div role="tabpanel" id={`condition-panel-${current.id}`} aria-labelledby={`condition-tab-${current.id}`} className="relative min-h-[280px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.id}

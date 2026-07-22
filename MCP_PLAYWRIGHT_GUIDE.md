@@ -8,6 +8,7 @@ This guide explains how to use Playwright MCP (Model Context Protocol) server fo
 ✅ The server is set to run with Chrome browser  
 ✅ Comprehensive UI audit tests created in `tests/ui-audit.spec.js`  
 ✅ Route manifest at `/routes.json` for agent page discovery  
+✅ AI agent context file at `/llms.txt` with site overview, page types, and browsing tips  
 ✅ Agentic browsing tests in `tests/agentic-browsing.spec.js`  
 
 ## What is MCP?
@@ -174,13 +175,18 @@ This site includes full support for **agentic browsing** — an AI agent (Claude
 
 ### How It Works
 
-1. **Route Discovery** — The agent fetches `/routes.json` (a static manifest served by Vite) to discover all 42+ pages
-2. **Systematic Crawl** — The agent visits each page, verifying rendering, SEO, and content
-3. **Reporting** — The agent collects metrics and reports issues
+1. **Agent Context** — The agent reads `/llms.txt` for business facts, page structure, and browsing tips
+2. **Route Discovery** — The agent fetches `/routes.json` to discover all 42+ pages with metadata
+3. **Systematic Crawl** — The agent visits each page, verifying rendering, SEO, and content
+4. **Reporting** — The agent collects metrics and reports issues
 
-### Route Manifest
+### Agent Context (`/llms.txt`)
 
-The file `public/routes.json` is the agent's entry point. It returns:
+The file `public/llms.txt` provides a human-readable guide for AI agents with business facts, page structure for each page type, navigation tips, and example prompts. An agent should read this file first for context before crawling.
+
+### Route Manifest (`/routes.json`)
+
+The file `public/routes.json` is the agent's route discovery endpoint. It returns:
 
 ```json
 {

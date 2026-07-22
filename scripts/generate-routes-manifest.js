@@ -43,31 +43,31 @@ const PAGES = [
   { path: '/knee-pain-physio-powai', pageType: 'treatment', label: 'Knee Pain Physio in Powai', priority: 0.7 },
 
   // Technique pages (7)
-  { path: '/techniques/interferential-therapy', pageType: 'technique', label: 'Interferential Therapy', priority: 0.6 },
-  { path: '/techniques/k-taping', pageType: 'technique', label: 'K-Taping', priority: 0.6 },
-  { path: '/techniques/shockwave', pageType: 'technique', label: 'Shockwave Therapy', priority: 0.6 },
-  { path: '/techniques/tens', pageType: 'technique', label: 'TENS Therapy', priority: 0.6 },
-  { path: '/techniques/ultrasound', pageType: 'technique', label: 'Ultrasound Therapy', priority: 0.6 },
-  { path: '/techniques/laser', pageType: 'technique', label: 'Laser Therapy', priority: 0.6 },
-  { path: '/techniques/manual-therapy', pageType: 'technique', label: 'Manual Therapy', priority: 0.6 },
+  { path: '/techniques/interferential-therapy', pageType: 'technique', label: 'Interferential Therapy', priority: 0.6, slug: 'interferential-therapy' },
+  { path: '/techniques/kinesiology-taping', pageType: 'technique', label: 'K-Taping', priority: 0.6, slug: 'k-taping' },
+  { path: '/techniques/shockwave-therapy', pageType: 'technique', label: 'Shockwave Therapy', priority: 0.6, slug: 'shockwave' },
+  { path: '/techniques/tens-therapy', pageType: 'technique', label: 'TENS Therapy', priority: 0.6, slug: 'tens' },
+  { path: '/techniques/ultrasound-therapy', pageType: 'technique', label: 'Ultrasound Therapy', priority: 0.6, slug: 'ultrasound' },
+  { path: '/techniques/laser-therapy', pageType: 'technique', label: 'Laser Therapy', priority: 0.6, slug: 'laser' },
+  { path: '/techniques/manual-therapy', pageType: 'technique', label: 'Manual Therapy', priority: 0.6, slug: 'manual-therapy' },
 
   // Service pages (9)
   { path: '/services/home-visit-physiotherapy', pageType: 'service', label: 'Home Visit Physiotherapy', priority: 0.7 },
-  { path: '/services/knee-pain', pageType: 'service', label: 'Knee Pain Treatment', priority: 0.7 },
-  { path: '/services/back-pain', pageType: 'service', label: 'Back Pain Treatment', priority: 0.7 },
-  { path: '/services/neck-pain', pageType: 'service', label: 'Neck Pain Treatment', priority: 0.7 },
-  { path: '/services/parkinsons', pageType: 'service', label: "Parkinson's Rehab", priority: 0.7 },
-  { path: '/services/stroke', pageType: 'service', label: 'Stroke Rehab', priority: 0.7 },
-  { path: '/services/tkr-rehab', pageType: 'service', label: 'Knee TKR Rehab', priority: 0.7 },
-  { path: '/services/post-surgery', pageType: 'service', label: 'Post-Surgery Rehab', priority: 0.7 },
-  { path: '/services/paediatric', pageType: 'service', label: 'Paediatric Physiotherapy', priority: 0.7 },
+  { path: '/services/knee-pain-physiotherapy', pageType: 'service', label: 'Knee Pain Treatment', priority: 0.7, slug: 'knee-pain' },
+  { path: '/services/back-pain-physiotherapy', pageType: 'service', label: 'Back Pain Treatment', priority: 0.7, slug: 'back-pain' },
+  { path: '/services/neck-pain-physiotherapy', pageType: 'service', label: 'Neck Pain Treatment', priority: 0.7, slug: 'neck-pain' },
+  { path: '/services/parkinsons-rehabilitation', pageType: 'service', label: "Parkinson's Rehab", priority: 0.7, slug: 'parkinsons-rehab' },
+  { path: '/services/stroke-rehabilitation', pageType: 'service', label: 'Stroke Rehab', priority: 0.7, slug: 'stroke-rehab' },
+  { path: '/services/knee-replacement-rehab', pageType: 'service', label: 'Knee TKR Rehab', priority: 0.7, slug: 'knee-tkr-rehab' },
+  { path: '/services/post-surgery-rehabilitation', pageType: 'service', label: 'Post-Surgery Rehab', priority: 0.7, slug: 'post-surgery-rehab' },
+  { path: '/services/paediatric-physiotherapy', pageType: 'service', label: 'Paediatric Physiotherapy', priority: 0.7, slug: 'paediatric-physiotherapy' },
 
   // Blog pages (6)
   { path: '/blog/cost-of-home-physiotherapy-mumbai', pageType: 'blog', label: 'Cost of Home Physiotherapy Mumbai', priority: 0.5 },
   { path: '/blog/cost-of-home-physiotherapy-thane', pageType: 'blog', label: 'Cost of Home Physiotherapy Thane', priority: 0.5 },
   { path: '/blog/cost-of-home-physiotherapy-powai', pageType: 'blog', label: 'Cost of Home Physiotherapy Powai', priority: 0.5 },
-  { path: '/blog/cost-of-home-physiotherapy-sakinaka', pageType: 'blog', label: 'Cost of Home Physiotherapy Sakinaka', priority: 0.5 },
-  { path: '/blog/cost-of-home-physiotherapy-marolnaka', pageType: 'blog', label: 'Cost of Home Physiotherapy Marol Naka', priority: 0.5 },
+  { path: '/blog/cost-of-home-physiotherapy-saki-naka', pageType: 'blog', label: 'Cost of Home Physiotherapy Sakinaka', priority: 0.5, slug: 'cost-of-home-physiotherapy-saki-naka' },
+  { path: '/blog/cost-of-home-physiotherapy-marol-naka', pageType: 'blog', label: 'Cost of Home Physiotherapy Marol Naka', priority: 0.5, slug: 'cost-of-home-physiotherapy-marol-naka' },
   { path: '/blog/home-physiotherapy-after-knee-surgery', pageType: 'blog', label: 'Home Physiotherapy After Knee Surgery', priority: 0.5 },
 
   // Landing pages (1)

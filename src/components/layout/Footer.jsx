@@ -128,11 +128,15 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-sm">
                 <PhoneIcon className="w-4 h-4 text-primary" />
-                +91 77385 56911
+                <a href="tel:+917738556911" className="hover:text-snow transition-colors duration-300">
+                  +91 77385 56911
+                </a>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <MailIcon className="w-4 h-4 text-primary" />
-                adaptrehabilitation@gmail.com
+                <a href="mailto:adaptrehabilitation@gmail.com" className="hover:text-snow transition-colors duration-300">
+                  adaptrehabilitation@gmail.com
+                </a>
               </li>
               <li className="flex items-start gap-3 text-sm">
                 <MapPinIcon className="w-4 h-4 text-primary mt-0.5" />

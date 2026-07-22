@@ -48,6 +48,12 @@ function NavDropdown({ label, links, allLink }) {
       className="relative"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
+      onFocus={() => setOpen(true)}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          setOpen(false);
+        }
+      }}
     >
       <button
         className="flex items-center gap-1 text-sm tracking-wide text-slate hover:text-charcoal transition-colors duration-300 cursor-pointer"
@@ -177,6 +183,7 @@ export default function Navbar() {
   return (
     <>
       <motion.nav
+        aria-label="Main navigation"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
             ? "bg-cloud/90 backdrop-blur-xl shadow-sm"
@@ -236,7 +243,7 @@ export default function Navbar() {
               <button
                 className="text-charcoal p-2 cursor-pointer"
                 onClick={() => setMobileOpen(!mobileOpen)}
-                aria-label="Toggle menu"
+                aria-label={mobileOpen ? "Close menu" : "Open menu"}
               >
                 {mobileOpen ? <CloseIcon /> : <MenuIcon />}
               </button>

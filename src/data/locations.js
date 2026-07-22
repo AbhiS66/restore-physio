@@ -145,7 +145,7 @@ export const locations = [
     metaDescription:
       "Expert physiotherapy in Vikhroli, Mumbai. Neuro, ortho, sports rehab & home visit physiotherapy. Serving Kanjurmarg, Bhandup & Ghatkopar. Call: +91 77385 56911.",
     canonical: `${SITE_URL}/physiotherapy-in-vikhroli`,
-    commonConditionsHeading: "Common conditions treated in Powai",
+    commonConditionsHeading: "Common conditions treated in Vikhroli",
     commonConditions: [
       "Persistent lower back pain from prolonged commuting",
       "Neck pain and headaches related to laptop posture",
@@ -153,16 +153,16 @@ export const locations = [
       "Shoulder impingement and rotator cuff discomfort",
       "Post-fracture stiffness and mobility restoration",
     ],
-    whyChooseHeading: "Why choose us in Hiranandani",
+    whyChooseHeading: "Why choose us near Vikhroli",
     whyChoosePoints: [
       "Structured assessments followed by measurable outcomes",
       "Manual therapy + active rehab in every stage",
       "Dedicated support for return-to-work and return-to-sport",
       "Same-day consultation support when slots are available",
     ],
-    nearbyFocusHeading: "Physiotherapy near IIT Bombay / Chandivali",
+    nearbyFocusHeading: "Physiotherapy near Kanjurmarg / Bhandup / Ghatkopar",
     nearbyFocusText:
-      "Many patients from Powai, IIT Bombay, and Chandivali choose us for focused rehab plans and continuity in follow-up sessions.",
+      "Many patients from Kanjurmarg, Bhandup, and Ghatkopar choose us for focused rehab plans and continuity in follow-up sessions.",
     nearbyLocationLinks: [
       { name: "Powai", href: "/physiotherapy-in-powai" },
       { name: "Ghatkopar", href: "/physiotherapy-in-vikhroli" },
@@ -195,13 +195,13 @@ export const locations = [
     metaDescription:
       "Premier physiotherapy clinic in Hiranandani Gardens, Powai. Expert neuro, ortho & sports rehab. Home visits across Mumbai. 1500+ patients treated. Call: +91 77385 56911.",
     canonical: `${SITE_URL}/physiotherapy-in-hiranandani`,
-    commonConditionsHeading: "Common conditions treated in Powai",
+    commonConditionsHeading: "Common conditions treated in Hiranandani Gardens",
     commonConditions: [
-      "Chronic back pain and postural syndromes",
-      "Knee pain from stair climbing and running",
-      "Sports rehab after ankle, knee, and shoulder injuries",
-      "Neck stiffness and tension headaches",
-      "Post-surgical strengthening and movement retraining",
+      "Back and neck pain from desk-heavy routines",
+      "Sports injuries from running, cricket, and gym training",
+      "Post-operative rehabilitation after ACL or joint surgery",
+      "Sciatica and nerve-related pain radiating to the leg",
+      "Knee pain while climbing stairs in daily city movement",
     ],
     whyChooseHeading: "Why choose us in Hiranandani",
     whyChoosePoints: [

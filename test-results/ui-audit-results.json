@@ -1,0 +1,409 @@
+{
+  "config": {
+    "configFile": "/Users/abhishekshimpi/Desktop/restore-physio/playwright.config.js",
+    "rootDir": "/Users/abhishekshimpi/Desktop/restore-physio/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/abhishekshimpi/Desktop/restore-physio/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/abhishekshimpi/Desktop/restore-physio/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/ui-audit-results.json"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 5,
+    "webServer": {
+      "command": "npm run dev",
+      "url": "http://localhost:5174",
+      "reuseExistingServer": true,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "agentic-browsing.spec.js",
+      "file": "agentic-browsing.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Agentic Browsing Suite",
+          "file": "agentic-browsing.spec.js",
+          "line": 100,
+          "column": 6,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Phase 7: Full Agentic Crawl",
+              "file": "agentic-browsing.spec.js",
+              "line": 367,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should visit every registered route and collect metrics",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 300000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 34813,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "⚠️ / (1116ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /physiotherapy-in-powai (553ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /physiotherapy-in-vikhroli (544ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /physiotherapy-in-hiranandani (544ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /physiotherapy-in-bhandup (545ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /physiotherapy-in-kanjurmarg (546ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /physiotherapy-in-chandivali (543ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /physiotherapy-in-ghatkopar (549ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /physiotherapy-in-sakinaka (543ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /physiotherapy-in-marolnaka (543ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /physiotherapy-in-lt-powai (546ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /physiotherapy-in-raheja-vihar (541ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /physiotherapy-in-lake-homes (544ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /physiotherapy-in-highland-gardens (545ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /physiotherapy-in-nahar (543ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /back-pain-treatment-powai (1788ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /sports-injury-rehab-mumbai (887ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /knee-pain-physio-powai (1158ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /techniques/interferential-therapy (543ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /techniques/k-taping (541ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /techniques/shockwave (543ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /techniques/tens (548ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /techniques/ultrasound (540ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /techniques/laser (542ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /techniques/manual-therapy (537ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /services/home-visit-physiotherapy (534ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /services/knee-pain (545ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /services/back-pain (547ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /services/neck-pain (542ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /services/parkinsons (539ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /services/stroke (541ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /services/tkr-rehab (542ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /services/post-surgery (541ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /services/paediatric (540ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /blog/cost-of-home-physiotherapy-mumbai (634ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /blog/cost-of-home-physiotherapy-thane (534ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /blog/cost-of-home-physiotherapy-powai (536ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /blog/cost-of-home-physiotherapy-sakinaka (542ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /blog/cost-of-home-physiotherapy-marolnaka (543ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /blog/home-physiotherapy-after-knee-surgery (539ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /home-physiotherapy-powai (624ms)\n"
+                            },
+                            {
+                              "text": "⚠️ /team (546ms)\n"
+                            },
+                            {
+                              "text": "\n📊 Crawl Summary:\n"
+                            },
+                            {
+                              "text": "   Total: 42 pages\n"
+                            },
+                            {
+                              "text": "   OK: 0 pages\n"
+                            },
+                            {
+                              "text": "   Issues: 42 pages\n"
+                            }
+                          ],
+                          "stderr": [
+                            {
+                              "text": "\n🚨 Pages with issues:\n"
+                            },
+                            {
+                              "text": "   [IMAGES] / → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /physiotherapy-in-powai → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /physiotherapy-in-vikhroli → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /physiotherapy-in-hiranandani → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /physiotherapy-in-bhandup → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /physiotherapy-in-kanjurmarg → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /physiotherapy-in-chandivali → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /physiotherapy-in-ghatkopar → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /physiotherapy-in-sakinaka → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /physiotherapy-in-marolnaka → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /physiotherapy-in-lt-powai → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /physiotherapy-in-raheja-vihar → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /physiotherapy-in-lake-homes → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /physiotherapy-in-highland-gardens → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /physiotherapy-in-nahar → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /back-pain-treatment-powai → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /sports-injury-rehab-mumbai → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /knee-pain-physio-powai → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /techniques/interferential-therapy → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /techniques/k-taping → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /techniques/shockwave → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /techniques/tens → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /techniques/ultrasound → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /techniques/laser → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /techniques/manual-therapy → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /services/home-visit-physiotherapy → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /services/knee-pain → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /services/back-pain → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /services/neck-pain → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /services/parkinsons → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /services/stroke → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /services/tkr-rehab → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /services/post-surgery → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /services/paediatric → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /blog/cost-of-home-physiotherapy-mumbai → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /blog/cost-of-home-physiotherapy-thane → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /blog/cost-of-home-physiotherapy-powai → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /blog/cost-of-home-physiotherapy-sakinaka → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /blog/cost-of-home-physiotherapy-marolnaka → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /blog/home-physiotherapy-after-knee-surgery → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /home-physiotherapy-powai → /src/assets/logo.png\n"
+                            },
+                            {
+                              "text": "   [IMAGES] /team → /src/assets/logo.png\n"
+                            }
+                          ],
+                          "retry": 0,
+                          "startTime": "2026-07-22T20:42:30.772Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b67b71ffb3280dce8345-ffd148b7fbdb6ad721f1",
+                  "file": "agentic-browsing.spec.js",
+                  "line": 368,
+                  "column": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-07-22T20:42:29.466Z",
+    "duration": 36234.933999999994,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

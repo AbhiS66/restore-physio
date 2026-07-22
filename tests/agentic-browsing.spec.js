@@ -14,6 +14,7 @@
  */
 
 import { test, expect } from '@playwright/test';
+import { readFileSync } from 'fs';
 
 const BASE_URL = 'http://localhost:5174';
 const VIEWPORTS = [
@@ -139,14 +140,9 @@ test.describe('Agentic Browsing Suite', () => {
   // ── Phase 2: Page Rendering ─────────────────────────────────────────
 
   test.describe('Phase 2: Page Rendering Verification', () => {
-    let allRoutes;
-
-    test.beforeAll(async ({ browser }) => {
-      const page = await browser.newPage();
-      const manifest = await discoverRoutes({ page });
-      allRoutes = manifest.routes;
-      await page.close();
-    });
+    // Read routes.json statically at module load time for test generation
+    const manifest = JSON.parse(readFileSync('./public/routes.json', 'utf-8'));
+    const allRoutes = manifest.routes;
 
     for (const viewport of VIEWPORTS) {
       test.describe(`Viewport: ${viewport.name} (${viewport.width}x${viewport.height})`, () => {

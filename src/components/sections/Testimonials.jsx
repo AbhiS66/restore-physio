@@ -77,6 +77,15 @@ export default function Testimonials() {
           onPointerDown={handlePointerDown}
           onPointerUp={handlePointerUp}
           onPointerCancel={handlePointerCancel}
+          onKeyDown={(e) => {
+            if (e.key === "ArrowLeft") {
+              e.preventDefault();
+              goTo(active - 1);
+            } else if (e.key === "ArrowRight") {
+              e.preventDefault();
+              goTo(active + 1);
+            }
+          }}
           style={{ userSelect: "none", cursor: "grab" }}
         >
           {/* Testimonial card */}
@@ -84,6 +93,10 @@ export default function Testimonials() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.id}
+                role="group"
+                aria-roledescription="testimonial"
+                aria-label={`Testimonial ${active + 1} of ${total}`}
+                aria-live="polite"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}
@@ -135,6 +148,7 @@ export default function Testimonials() {
                   className="relative h-1 rounded-full overflow-hidden cursor-pointer bg-charcoal/10 transition-all duration-300"
                   style={{ width: i === active ? 40 : 20 }}
                   aria-label={`Go to testimonial ${i + 1}`}
+                  aria-current={i === active ? "true" : undefined}
                 >
                   {i === active && (
                     // key={cycleKey} forces a true remount so animation always starts from scaleX:0
