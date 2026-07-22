@@ -16,6 +16,13 @@ const HTML_PATH = resolve(PUBLIC_DIR, "og-image.html");
 const OUTPUT_PATH = resolve(PUBLIC_DIR, "og-image.png");
 
 async function generate() {
+  // Skip on Vercel — Playwright browsers aren't available,
+  // and the committed og-image.png is deployed as-is.
+  if (process.env.VERCEL) {
+    console.log(`ℹ️  Skipping OG image generation on Vercel (using committed file)`);
+    return;
+  }
+
   // Ensure public directory exists
   if (!existsSync(PUBLIC_DIR)) mkdirSync(PUBLIC_DIR, { recursive: true });
 
@@ -31,6 +38,11 @@ async function generate() {
 }
 
 generate().catch((err) => {
-  console.error("❌ Failed to generate OG image:", err);
-  process.exit(1);
+  // Don't fail the build — a pre-committed og-image.png exists
+  console.error("❌ Failed to generate OG image:", err.message);
+  if (!existsSync(OUTPUT_PATH)) {
+    console.error("   No pre-committed og-image.png found — social previews will be broken.");
+  } else {
+    console.log("   Using pre-committed og-image.png as fallback.");
+  }
 });
