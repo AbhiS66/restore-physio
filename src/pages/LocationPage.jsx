@@ -98,7 +98,7 @@ function LocationHero({ location }) {
             {location.heroSubtext}
           </motion.p>
 
-          {/* Nearby areas — local SEO keywords rendered visibly */}
+          {/* Nearby areas - local SEO keywords rendered visibly */}
           <motion.div
             className="flex flex-wrap gap-2 mb-12"
             initial={{ opacity: 0, y: 20 }}
@@ -162,7 +162,7 @@ function buildLocationSchema(location) {
   const baseBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
-    name: `Adapt Physiotherapy — ${location.name}`,
+    name: `Adapt Physiotherapy - ${location.name}`,
     url: location.canonical,
     logo: `${SITE_URL}/favicon.png`,
     image: `${SITE_URL}/og-image.jpg`,
@@ -221,7 +221,7 @@ function buildLocationSchema(location) {
     "@type": "Review",
     itemReviewed: {
       "@type": "MedicalBusiness",
-      name: `Adapt Physiotherapy — ${location.name}`,
+      name: `Adapt Physiotherapy - ${location.name}`,
     },
     reviewRating: {
       "@type": "Rating",
@@ -240,7 +240,7 @@ function buildLocationSchema(location) {
     "@type": "Review",
     itemReviewed: {
       "@type": "MedicalBusiness",
-      name: `Adapt Physiotherapy — ${location.name}`,
+      name: `Adapt Physiotherapy - ${location.name}`,
     },
     reviewRating: {
       "@type": "Rating",

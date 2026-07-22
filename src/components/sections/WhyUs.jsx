@@ -6,7 +6,7 @@ const pillars = [
   {
     title: "Evidence-Based",
     description:
-      "Every protocol is grounded in the latest research and clinical evidence. No guesswork, no fads — only proven methods.",
+      "Every protocol is grounded in the latest research and clinical evidence. No guesswork, no fads - only proven methods.",
   },
   {
     title: "One-on-One Care",
@@ -21,7 +21,7 @@ const pillars = [
   {
     title: "Lasting Results",
     description:
-      "We don't just relieve pain — we address root causes. Our patients stay better because we treat smarter.",
+      "We don't just relieve pain - we address root causes. Our patients stay better because we treat smarter.",
   },
 ];
 

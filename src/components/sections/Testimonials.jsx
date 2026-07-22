@@ -24,7 +24,7 @@ export default function Testimonials() {
     setCycleKey((k) => k + 1);
   };
 
-  // setTimeout (not setInterval) — restarts whenever cycleKey changes, keeping timer + bar in sync.
+  // setTimeout (not setInterval) - restarts whenever cycleKey changes, keeping timer + bar in sync.
   // hovering pauses the timer; on mouse-leave we bump cycleKey so bar restarts from 0.
   useEffect(() => {
     if (hovering) return;
@@ -115,7 +115,7 @@ export default function Testimonials() {
 
           {/* Arrow Navigation + Progress indicators */}
           <div className="flex items-center justify-center gap-4 md:gap-8 mt-12">
-            {/* Left Arrow — stopPropagation prevents triggering the outer drag handler */}
+            {/* Left Arrow - stopPropagation prevents triggering the outer drag handler */}
             <button
               onClick={() => goTo(active - 1)}
               onPointerDown={(e) => e.stopPropagation()}

@@ -72,6 +72,26 @@ export default function LocalSeoSections({ location }) {
           </Card>
         </RevealOnScroll>
       </div>
+
+      {/* Related articles */}
+      {location.relatedBlogs && location.relatedBlogs.length > 0 && (
+        <RevealOnScroll delay={0.3}>
+          <div className="mt-12 pt-8 border-t border-charcoal/10">
+            <p className="text-label text-slate mb-4">Related articles</p>
+            <div className="flex flex-wrap gap-2">
+              {location.relatedBlogs.map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="px-4 py-2 rounded-full bg-primary-light/50 text-primary-dark text-sm hover:bg-primary hover:text-snow transition-colors border border-primary/10"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </RevealOnScroll>
+      )}
     </SectionWrapper>
   );
 }

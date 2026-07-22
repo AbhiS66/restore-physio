@@ -15,7 +15,7 @@ function AnimatedBackground({ reduceMotion }) {
       {/* Base warm gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-cloud via-primary-light/30 to-cloud" />
 
-      {/* Floating organic shapes — slow, calming motion */}
+      {/* Floating organic shapes - slow, calming motion */}
       <motion.div
         className="absolute -top-1/4 -right-1/4 w-[60vw] h-[60vw] rounded-full bg-primary/[0.06] blur-3xl"
         animate={
@@ -121,7 +121,7 @@ export default function Hero() {
             Adapt Physiotherapy · Mumbai
           </motion.span>
 
-          {/* Headline — each line reveals separately */}
+          {/* Headline - each line reveals separately */}
           <h1 className="text-display text-charcoal mb-8">
             <motion.span
               className="block"

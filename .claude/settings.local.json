@@ -1,9 +1,19 @@
 {
+  "env": {
+    "VAULT_ADDR": "http://localhost:8200",
+    "VAULT_TOKEN": "1caafc5e6cf3328f9df6c2608f7c34b82dede4706c5dca403c0454544cc32c28",
+    "VAULT_PATH": "/Users/abhishekshimpi/Documents/vault"
+  },
   "permissions": {
     "allow": [
       "Bash(npm run:*)",
       "Bash(npx playwright:*)",
-      "Bash(node audit-runner.js)"
+      "Bash(node audit-runner.js)",
+      "WebFetch(domain:www.reddit.com)",
+      "Bash(curl -s -X GET -H \"Authorization: Bearer 1caafc5e6cf3328f9df6c2608f7c34b82dede4706c5dca403c0454544cc32c28\" http://localhost:8200/v1/sys/mounts)",
+      "WebSearch",
+      "Bash(chmod +x /Users/abhishekshimpi/.claude/vault-queries.sh)",
+      "Bash(/Users/abhishekshimpi/.claude/vault-queries.sh locations *)"
     ]
   }
 }

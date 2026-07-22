@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { SITE_URL } from "../data/locations";
 
 /**
- * SEOHead — sets per-page <title>, meta description, canonical,
+ * SEOHead - sets per-page <title>, meta description, canonical,
  * Open Graph, Twitter Card, and optional JSON-LD structured data.
  */
 export default function SEOHead({

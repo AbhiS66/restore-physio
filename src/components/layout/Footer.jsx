@@ -2,20 +2,39 @@ import { Link } from "react-router-dom";
 import { PhoneIcon, MailIcon, MapPinIcon } from "../icons/Icons";
 import logo from "../../assets/logo.png";
 import { contentRoutes, locationRouteMap } from "../../data/locations";
+import { servicePages } from "../../data/servicePages";
+import { techniquePages } from "../../data/techniques";
 
 const footerLinks = [
   { label: "About", href: "/#about" },
   { label: "Services", href: "/#services" },
   { label: "Conditions", href: "/#conditions" },
   { label: "Testimonials", href: "/#testimonials" },
+  { label: "Meet Our Team", href: "/team" },
   { label: "Contact", href: "/#contact" },
+];
+
+// Extract short display labels from full SEO titles
+function shortLabel(fullTitle) {
+  return fullTitle.split(" | ")[0];
+}
+
+// Key location pages shown in footer (top areas by population/reach)
+const footerLocations = [
+  { label: "Powai", slug: "powai" },
+  { label: "Hiranandani", slug: "hiranandani" },
+  { label: "Vikhroli", slug: "vikhroli" },
+  { label: "Bhandup", slug: "bhandup" },
+  { label: "Ghatkopar", slug: "ghatkopar" },
+  { label: "Saki Naka", slug: "sakinaka" },
+  { label: "Marol Naka", slug: "marolnaka" },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-midnight text-snow/60 py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 md:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 mb-16">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-6">
@@ -32,53 +51,45 @@ export default function Footer() {
               Evidence-based care, delivered with compassion.
             </p>
             <p className="text-xs mt-4 text-snow/40">
-              Also serving nearby areas: Vikhroli, Ghatkopar.
+              Serving Powai, Vikhroli, Bhandup, Ghatkopar, Chandivali & across Mumbai.
             </p>
           </div>
 
-          {/* Navigation */}
+          {/* Explore - Navigation + Locations */}
           <div>
-            <h4 className="text-label text-snow/40 mb-6">Navigation</h4>
+            <h4 className="text-label text-snow/40 mb-6">Explore</h4>
             <ul className="space-y-3">
               {footerLinks.map((link) => (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-sm hover:text-snow transition-colors duration-300"
                   >
                     {link.label}
-                  </a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <h4 className="text-label text-snow/40 mb-4 mt-8">Locations</h4>
+            <ul className="space-y-2.5 text-sm">
+              {footerLocations.map((loc) => (
+                <li key={loc.slug}>
+                  <Link
+                    className="hover:text-snow transition-colors duration-300"
+                    to={locationRouteMap[loc.slug] || `/physiotherapy-in-${loc.slug}`}
+                  >
+                    Physiotherapy in {loc.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Location Pages */}
-          <div>
-            <h4 className="text-label text-snow/40 mb-6">Location Pages</h4>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link className="hover:text-snow transition-colors duration-300" to={locationRouteMap.powai}>
-                  Physiotherapy in Powai
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-snow transition-colors duration-300" to={locationRouteMap.hiranandani}>
-                  Physiotherapy in Hiranandani
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-snow transition-colors duration-300" to={locationRouteMap.vikhroli}>
-                  Physiotherapy in Vikhroli
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Treatment Pages */}
+          {/* Learn - Treatments + Techniques */}
           <div>
             <h4 className="text-label text-snow/40 mb-6">Treatment Guides</h4>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-2.5 text-sm">
               {contentRoutes.map((route) => (
                 <li key={route.slug}>
                   <Link className="hover:text-snow transition-colors duration-300" to={route.href}>
@@ -87,11 +98,33 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+
+            <h4 className="text-label text-snow/40 mb-4 mt-8">Techniques</h4>
+            <ul className="space-y-2.5 text-sm">
+              {techniquePages.map((t) => (
+                <li key={t.slug}>
+                  <Link className="hover:text-snow transition-colors duration-300" to={t.path}>
+                    {shortLabel(t.title)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Contact */}
+          {/* Services + Contact */}
           <div>
-            <h4 className="text-label text-snow/40 mb-6">Get in Touch</h4>
+            <h4 className="text-label text-snow/40 mb-6">Our Services</h4>
+            <ul className="space-y-2.5 text-sm">
+              {servicePages.map((s) => (
+                <li key={s.slug}>
+                  <Link className="hover:text-snow transition-colors duration-300" to={s.path}>
+                    {shortLabel(s.title)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <h4 className="text-label text-snow/40 mb-4 mt-8">Get in Touch</h4>
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-sm">
                 <PhoneIcon className="w-4 h-4 text-primary" />

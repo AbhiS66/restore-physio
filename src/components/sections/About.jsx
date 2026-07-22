@@ -30,14 +30,14 @@ export default function About() {
   return (
     <SectionWrapper id="about" bg="bg-snow">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-        {/* Left — Pull quote + Stats */}
+        {/* Left - Pull quote + Stats */}
         <div className="flex flex-col justify-between">
           <div>
             <SectionLabel>Our Philosophy</SectionLabel>
             <RevealOnScroll>
               <blockquote className="text-h1 text-charcoal leading-tight mb-8">
                 <span className="text-primary">"</span>
-                Healing is not a destination. It&apos;s a practice — and we walk
+                Healing is not a destination. It&apos;s a practice and we walk
                 beside you at every step.
                 <span className="text-primary">"</span>
               </blockquote>
@@ -63,12 +63,12 @@ export default function About() {
           </RevealOnScroll>
         </div>
 
-        {/* Right — Narrative */}
+        {/* Right - Narrative */}
         <div className="flex flex-col justify-center">
           <RevealOnScroll>
             <p className="text-body text-slate mb-6">
               At Adapt Physiotherapy, we believe that every body tells a story. Pain is not just a
-              symptom to be silenced — it&apos;s a signal to be understood. Our approach
+              symptom to be silenced - it&apos;s a signal to be understood. Our approach
               begins with listening. Truly listening. To your history, your goals,
               and the language your body speaks.
             </p>
@@ -82,7 +82,7 @@ export default function About() {
           </RevealOnScroll>
           <RevealOnScroll delay={0.2}>
             <p className="text-body text-slate mb-8">
-              Every treatment plan is a collaboration — crafted around your
+              Every treatment plan is a collaboration - crafted around your
               unique anatomy, lifestyle, and aspirations. Because recovery isn&apos;t
               one-size-fits-all. It&apos;s one-of-a-kind.
             </p>

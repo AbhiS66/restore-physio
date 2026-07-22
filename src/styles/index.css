@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* ─── Custom Design Tokens — ADAPT Brand System ─── */
+/* ─── Custom Design Tokens - ADAPT Brand System ─── */
 @theme {
   /* Brand Primary (from ADAPT logo cyan-blue) */
   --color-primary: #78C5E0;

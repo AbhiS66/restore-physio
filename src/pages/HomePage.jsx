@@ -61,7 +61,7 @@ export default function HomePage() {
   return (
     <>
       <SEOHead
-        title="Adapt Physiotherapy — Transforming Lives | Mumbai"
+        title="Adapt Physiotherapy - Transforming Lives | Mumbai"
         description="Premium evidence-based physiotherapy in Mumbai. Neuro, ortho, cardio pulmonary physiotherapy & home visits in Powai and Vikhroli. Book your consultation today."
         canonical={SITE_URL}
         schema={homeSchema}

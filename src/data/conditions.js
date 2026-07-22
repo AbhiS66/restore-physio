@@ -3,7 +3,7 @@ export const conditions = [
     id: "back-pain",
     title: "Back & Spinal Pain",
     description:
-      "From herniated discs to postural imbalances, we treat the full spectrum of spinal conditions using manual therapy, targeted exercise, and ergonomic education. Our approach addresses the underlying dysfunction — not just the symptoms.",
+      "From herniated discs to postural imbalances, we treat the full spectrum of spinal conditions using manual therapy, targeted exercise, and ergonomic education. Our approach addresses the underlying dysfunction - not just the symptoms.",
     details: [
       "Herniated & bulging discs",
       "Sciatica & radiculopathy",
@@ -51,7 +51,7 @@ export const conditions = [
     id: "post-surgical",
     title: "Post-Surgical Rehabilitation",
     description:
-      "Surgery is only half the journey. Our structured post-operative programs guide you through each recovery milestone — from early mobilisation to full functional restoration — with precision and care.",
+      "Surgery is only half the journey. Our structured post-operative programs guide you through each recovery milestone - from early mobilisation to full functional restoration - with precision and care.",
     details: [
       "Joint replacement rehab",
       "Spinal surgery recovery",

@@ -3,7 +3,7 @@ export const services = [
     id: 1,
     title: "Neuro Physiotherapy",
     description:
-      "Specialised rehabilitation for neurological conditions — stroke recovery, Parkinson's management, and nerve injury rehabilitation using evidence-based protocols.",
+      "Specialised rehabilitation for neurological conditions - stroke recovery, Parkinson's management, and nerve injury rehabilitation using evidence-based protocols.",
     icon: "activity",
   },
   {
@@ -52,7 +52,7 @@ export const services = [
     id: 8,
     title: "Geriatric Physiotherapy",
     description:
-      "Gentle yet effective rehabilitation for older adults — improving mobility, balance, strength, and independence in daily living.",
+      "Gentle yet effective rehabilitation for older adults - improving mobility, balance, strength, and independence in daily living.",
     icon: "heart",
   },
 ];

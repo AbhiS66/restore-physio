@@ -64,7 +64,7 @@ export default function Conditions() {
 
       <RevealOnScroll>
         <div className="grid grid-cols-1 lg:grid-cols-[1fr,1.5fr] gap-8 lg:gap-16">
-          {/* Tabs — vertical on desktop, horizontal scroll on mobile */}
+          {/* Tabs - vertical on desktop, horizontal scroll on mobile */}
           <div className="relative">
             <div
               className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 snap-x snap-mandatory scrollbar-hide"
@@ -87,7 +87,7 @@ export default function Conditions() {
               ))}
             </div>
 
-            {/* Gradient fade + animated arrow — indicates scrollability on mobile */}
+            {/* Gradient fade + animated arrow - indicates scrollability on mobile */}
             <AnimatePresence>
               {showScrollHint && (
                 <motion.div
