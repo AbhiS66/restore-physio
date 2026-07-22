@@ -56,8 +56,9 @@ function dedupHead(html) {
 const { routes } = JSON.parse(readFileSync(routesPath, 'utf-8'));
 console.log(`Prerendering ${routes.length} routes...\n`);
 
-// Start vite preview server
-const server = spawn('npx', ['vite', 'preview', '--port', '4173', '--strictPort'], {
+// Start vite preview server (use local binary, not npx — avoids resolution overhead)
+const viteBin = resolve(root, 'node_modules', '.bin', 'vite');
+const server = spawn(viteBin, ['preview', '--port', '4173', '--strictPort', '--host', '0.0.0.0'], {
   cwd: root,
   stdio: ['ignore', 'pipe', 'pipe'],
 });
@@ -68,7 +69,7 @@ process.on('SIGTERM', cleanup);
 
 // Wait for server to be ready and capture the actual URL
 const baseUrl = await new Promise((resolveUrl, reject) => {
-  const timeout = setTimeout(() => reject(new Error('Server start timeout')), 30000);
+  const timeout = setTimeout(() => reject(new Error('Server start timeout')), 60000);
   const handler = (data) => {
     const text = data.toString();
     const match = text.match(/Local:\s+(https?:\/\/[^\s]+)/);
