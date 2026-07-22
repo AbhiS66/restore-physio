@@ -59,7 +59,7 @@ export const servicePages = [
       {
         question: "How much does home physiotherapy cost?",
         answer:
-          "Home visit pricing depends on location, session duration, and treatment complexity. A standard 60-minute session typically ranges from ₹1500-2500. Packages for multiple sessions offer reduced per-session rates. Contact us for a detailed quote based on your needs.",
+          "Home visit pricing depends on location, session duration, and treatment complexity. A standard 60-minute session typically ranges from ₹1000-1500. Packages for multiple sessions offer reduced per-session rates. Contact us for a detailed quote based on your needs.",
       },
     ],
     relatedServices: [

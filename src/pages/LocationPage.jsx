@@ -134,7 +134,7 @@ function LocationHero({ location }) {
                 href="tel:+917738556911"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide transition-all duration-400 cursor-pointer bg-primary-deep text-snow hover:bg-primary-dark px-10 py-4 text-base"
+                className="inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide transition-all duration-400 cursor-pointer bg-primary-deep text-snow hover:bg-primary-dark px-10 py-4 text-base w-full"
               >
                 Book Consultation
                 <ArrowRight />

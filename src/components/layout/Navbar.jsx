@@ -111,7 +111,7 @@ function MobileDropdown({ label, links, allLink, onClose }) {
       >
         {label}
         <ChevronDownIcon
-          className={`w-5 h-5 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          className={`w-5 h-5 transition-transform duration-200 mt-1 ml-2  ${open ? "rotate-180" : ""}`}
         />
       </button>
 
@@ -260,7 +260,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={closeMobile}
-                className="text-h3 text-charcoal"
+                className="text-h3 text-charcoal py-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.08, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
@@ -301,7 +301,7 @@ export default function Navbar() {
               <Link
                 to="/team"
                 onClick={closeMobile}
-                className="block text-h3 text-charcoal"
+                className="block text-h3 text-charcoal py-2"
               >
                 Team
               </Link>
@@ -310,7 +310,7 @@ export default function Navbar() {
             <motion.a
               href="/#contact"
               onClick={closeMobile}
-              className="text-h3 text-charcoal"
+              className="text-h3 text-charcoal py-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.64, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
