@@ -1,4 +1,5 @@
-import { Helmet } from "react-helmet-async";
+
+import { Head } from "vite-react-ssg";
 import { SITE_URL } from "../data/locations";
 
 /**
@@ -38,7 +39,7 @@ export default function SEOHead({
   }
 
   return (
-    <Helmet>
+    <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
       {canonical && <link rel="canonical" href={canonical} />}
@@ -66,6 +67,6 @@ export default function SEOHead({
           {JSON.stringify(item)}
         </script>
       ))}
-    </Helmet>
+    </Head>
   );
 }

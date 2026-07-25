@@ -2,7 +2,7 @@
   "version": 1,
   "totalRoutes": 42,
   "siteUrl": "https://www.adaptphysiotherapy.in",
-  "generatedAt": "2026-07-22T22:05:38.354Z",
+  "generatedAt": "2026-07-25T18:00:13.860Z",
   "description": "Route manifest for agentic browsing. An AI agent fetches this to discover all pages on the site.",
   "routes": [
     {

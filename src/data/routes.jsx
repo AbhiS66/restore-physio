@@ -1,5 +1,5 @@
 // Unified route registry - single source of truth for all page routes.
-// App.jsx maps over allRoutes to generate <Route> elements dynamically.
+// Exports route records for createBrowserRouter (used by vite-react-ssg).
 
 import { locations } from "./locations";
 import { treatmentPages } from "./contentPages";
@@ -8,7 +8,7 @@ import { servicePages } from "./servicePages";
 import { blogPages } from "./blogPages";
 import { landingPages } from "./landingPages";
 
-// Import page components for the component map
+// Import page components
 import LocationPage from "../pages/LocationPage";
 import TreatmentPage from "../pages/TreatmentPage";
 import TechniquePage from "../pages/TechniquePage";
@@ -18,52 +18,43 @@ import BlogIndexPage from "../pages/BlogIndexPage";
 import LandingPage from "../pages/LandingPage";
 import TeamPage from "../pages/TeamPage";
 
+// Layout
+import AppShell from "../AppShell";
+import HomePage from "../pages/HomePage";
+import NotFoundPage from "../pages/NotFoundPage";
+
 // ─── Build Routes Array ──────────────────────────────────────────────
 
-/**
- * Location routes: /physiotherapy-in-<slug>
- * Path is derived from the slug. The locationRouteMap in locations.js
- * maps slug → path; we use that for consistency.
- *
- * NOTE: Only locations with full data entries in the locations array
- * get a route. If a slug is in locationRouteMap but has no data entry,
- * it will 404 at the page level (getLocationBySlug returns null).
- */
 const locationRoutes = locations.map((l) => ({
   path: `/physiotherapy-in-${l.slug}`,
   slug: l.slug,
   pageType: "location",
 }));
 
-/** Existing treatment pages from contentPages.js */
 const treatmentRoutes = treatmentPages.map((p) => ({
   path: p.path,
   slug: p.slug,
   pageType: "treatment",
 }));
 
-/** New technique pages from techniques.js */
 const techniqueRoutes = techniquePages.map((p) => ({
   path: p.path,
   slug: p.slug,
   pageType: "technique",
 }));
 
-/** New service detail pages from servicePages.js */
 const serviceRoutes = servicePages.map((p) => ({
   path: p.path,
   slug: p.slug,
   pageType: "service",
 }));
 
-/** New blog pages from blogPages.js */
 const blogRoutes = blogPages.map((p) => ({
   path: p.path,
   slug: p.slug,
   pageType: "blog",
 }));
 
-/** New landing pages from landingPages.js */
 const landingRoutes = landingPages.map((p) => ({
   path: p.path,
   slug: p.slug,
@@ -86,8 +77,7 @@ export const allRoutes = [
 
 // ─── Page Component Map ──────────────────────────────────────────────
 
-export const pageComponentMap = {
-  home: null, // HomePage is handled separately (no slug)
+const pageComponentMap = {
   location: LocationPage,
   treatment: TreatmentPage,
   technique: TechniquePage,
@@ -98,14 +88,37 @@ export const pageComponentMap = {
   "blog-index": BlogIndexPage,
 };
 
+// ─── Build React Router Route Records ───────────────────────────────
+
+const dynamicRoutes = allRoutes
+  .filter((r) => r.path !== "/")
+  .map((r) => {
+    const Component = pageComponentMap[r.pageType];
+    if (!Component) return null;
+    return {
+      path: r.path,
+      element: r.slug ? <Component slug={r.slug} /> : <Component />,
+    };
+  })
+  .filter(Boolean);
+
+export const routes = [
+  {
+    element: <AppShell />,
+    children: [
+      { index: true, element: <HomePage /> },
+      ...dynamicRoutes,
+      { path: "*", element: <NotFoundPage /> },
+    ],
+  },
+];
+
 // ─── Helpers ─────────────────────────────────────────────────────────
 
-/** Get the total count of all registered routes (excluding catch-all) */
 export function getTotalRouteCount() {
   return allRoutes.length;
 }
 
-/** Find a route entry by path */
 export function getRouteByPath(path) {
   return allRoutes.find((r) => r.path === path);
 }

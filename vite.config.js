@@ -32,9 +32,9 @@ function generateRouteManifest() {
   try {
     // Resolve the routes file to extract route data
     // Since Vite handles ESM, we read the source directly and use a dynamic import
-    const routesPath = path.resolve('src/data/routes.js')
+    const routesPath = path.resolve('src/data/routes.jsx')
     if (!existsSync(routesPath)) {
-      console.warn('[route-manifest] src/data/routes.js not found, skipping')
+      console.warn('[route-manifest] src/data/routes.jsx not found, skipping')
       return
     }
 
@@ -59,4 +59,8 @@ function generateRouteManifest() {
 
 export default defineConfig({
   plugins: [routeManifestPlugin(), react(), tailwindcss()],
+  ssgOptions: {
+    dirStyle: 'nested',
+    script: 'async',
+  },
 })

@@ -1,22 +1,22 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import { HelmetProvider } from 'react-helmet-async'
+import { RouterProvider } from 'react-router-dom'
+import { ViteReactSSG } from 'vite-react-ssg'
 import './styles/index.css'
-import App from './App.jsx'
+import { routes } from './data/routes.jsx'
 
 // Prevent browser from restoring scroll position on reload
-if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual';
+if (typeof window !== 'undefined') {
+  if ('scrollRestoration' in window.history) {
+    window.history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
 }
-window.scrollTo(0, 0);
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <HelmetProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </HelmetProvider>
-  </StrictMode>,
-)
+export const createRoot = ViteReactSSG(
+  { routes },
+  ({ router }) => (
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
+  ),
+);
