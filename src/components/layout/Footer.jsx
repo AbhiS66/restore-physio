@@ -152,7 +152,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-snow/10 pt-8 flex flex-col md:flex-row justify-center items-center gap-4">
-          <p className="text-xs text-snow/30">
+          <p className="text-xs text-snow/30" suppressHydrationWarning>
             © {new Date().getFullYear()} Adapt Physiotherapy. All rights reserved.
           </p>
         </div>
