@@ -130,7 +130,7 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
             >
-              Your body holds
+              Expert Physiotherapy
             </motion.span>
             <motion.span
               className="block"
@@ -139,7 +139,7 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
             >
-              the wisdom to heal.
+              in the Comfort
             </motion.span>
             <motion.span
               className="block text-primary-deep"
@@ -148,7 +148,7 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
             >
-              We guide the journey.
+              of Your Home.
             </motion.span>
           </h1>
 
