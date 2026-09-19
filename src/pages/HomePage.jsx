@@ -1,4 +1,5 @@
 import SEOHead from "../components/SEOHead";
+import GuideLine from "../components/ui/GuideLine";
 import Hero from "../components/sections/Hero";
 import About from "../components/sections/About";
 import Services from "../components/sections/Services";
@@ -66,14 +67,17 @@ export default function HomePage() {
         canonical={SITE_URL}
         schema={homeSchema}
       />
-      <Hero />
-      <About />
-      <Services />
-      <Conditions />
-      <Testimonials />
-      <WhyUs />
-      <CTASection />
-      <Contact />
+      <div className="relative">
+        <GuideLine />
+        <Hero />
+        <About />
+        <Services />
+        <Conditions />
+        <Testimonials />
+        <WhyUs />
+        <CTASection />
+        <Contact />
+      </div>
     </>
   );
 }

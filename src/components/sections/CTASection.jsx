@@ -4,7 +4,7 @@ import { ArrowRight } from "../icons/Icons";
 
 export default function CTASection() {
   return (
-    <section className="bg-primary-dark py-24 md:py-32 lg:py-40">
+    <section id="cta" className="bg-primary-dark py-24 md:py-32 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-20 text-center">
         <RevealOnScroll>
           <h2 className="text-display text-snow max-w-3xl mx-auto mb-8">

@@ -13,7 +13,9 @@
       "Bash(curl -s -X GET -H \"Authorization: Bearer 1caafc5e6cf3328f9df6c2608f7c34b82dede4706c5dca403c0454544cc32c28\" http://localhost:8200/v1/sys/mounts)",
       "WebSearch",
       "Bash(chmod +x /Users/abhishekshimpi/.claude/vault-queries.sh)",
-      "Bash(/Users/abhishekshimpi/.claude/vault-queries.sh locations *)"
+      "Bash(/Users/abhishekshimpi/.claude/vault-queries.sh locations *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5199)",
+      "Bash(node .tmp-check.mjs)"
     ]
   }
 }
